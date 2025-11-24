@@ -3,7 +3,21 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="relative border-t border-gray-200 overflow-hidden">
+      {/* Logo en arrière-plan */}
+      <div className="absolute inset-0 opacity-5">
+        <Image
+          src="/images/e6de5d03-0703-4070-a882-7a88bb7bdf60-removebg-preview.png"
+          alt=""
+          fill
+          className="object-cover"
+        />
+      </div>
+      {/* Overlay pour la lisibilité */}
+      <div className="absolute inset-0 bg-gray-50/95"></div>
+      
+      {/* Contenu */}
+      <div className="relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="col-span-1 md:col-span-2">
@@ -111,6 +125,7 @@ export default function Footer() {
         <div className="mt-6 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
           <p>&copy; {new Date().getFullYear()} Kitty-Octa - OctaviEvent. Tous droits réservés.</p>
         </div>
+      </div>
       </div>
     </footer>
   );
