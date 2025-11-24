@@ -50,6 +50,20 @@ const services = [
     ],
   },
   {
+    title: "Décoration d'événements",
+    icon: "🎨",
+    description: "Création d'univers visuels sur mesure pour sublimer vos événements.",
+    details: [
+      "Décoration florale et végétale",
+      "Scénographie personnalisée",
+      "Accessoires et mobilier décoratif",
+      "Ambiance lumineuse et atmosphérique",
+      "Décoration thématique",
+      "Location de matériel décoratif",
+      "Installation et démontage",
+    ],
+  },
+  {
     title: "Formation et accompagnement",
     icon: "📚",
     description: "Transmission d'expertise en gestion de projet, communication et interculturalité.",

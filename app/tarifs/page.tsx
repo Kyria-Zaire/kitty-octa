@@ -39,6 +39,22 @@ const pricingPlans = [
     popular: false,
   },
   {
+    name: "Décoration d'événements",
+    description: "Création d'univers visuels sur mesure",
+    price: "Sur devis",
+    features: [
+      "Consultation personnalisée",
+      "Décoration florale et végétale",
+      "Scénographie personnalisée",
+      "Accessoires et mobilier décoratif",
+      "Ambiance lumineuse",
+      "Décoration thématique",
+      "Location de matériel",
+      "Installation et démontage",
+    ],
+    popular: false,
+  },
+  {
     name: "Layer Cakes et pâtisseries sur mesure",
     description: "Création artisanale de pâtisseries sur mesure",
     price: "À partir de 80€",
