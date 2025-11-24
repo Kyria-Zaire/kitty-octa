@@ -12,7 +12,7 @@ const portfolioItems = [
     category: "Wedding Planning",
     location: "Picardie",
     description: "Un mariage romantique en pleine nature avec une décoration minimaliste et raffinée. Coordination complète des prestataires et organisation du jour J.",
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1530023367847-a683933f4172?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     highlights: ["150 invités", "Coordination complète", "Décoration sur mesure"],
   },
   {
