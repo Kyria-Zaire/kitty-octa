@@ -5,12 +5,12 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-gray-200 overflow-hidden bg-gray-50">
       {/* Logo en arrière-plan */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+      <div className="absolute inset-0 flex items-center justify-center opacity-20">
         <Image
           src="/images/e6de5d03-0703-4070-a882-7a88bb7bdf60-removebg-preview.png"
           alt=""
-          width={400}
-          height={200}
+          width={500}
+          height={250}
           className="object-contain"
         />
       </div>
