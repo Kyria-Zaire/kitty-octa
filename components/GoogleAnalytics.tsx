@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { pageview } from "@/lib/analytics";
 
@@ -9,14 +9,13 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (GA_ID) {
-      const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
+    if (GA_ID && typeof window !== "undefined") {
+      const url = pathname + (window.location.search || "");
       pageview(url);
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   if (!GA_ID) {
     return null;
