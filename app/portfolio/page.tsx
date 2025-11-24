@@ -30,7 +30,7 @@ const portfolioItems = [
     category: "Pâtisserie",
     location: "Amiens",
     description: "Création d'un layer cake de 5 étages pour un mariage, avec décoration florale comestible et saveurs personnalisées.",
-    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1549254800-381c9c6f4ee5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     highlights: ["5 étages", "Décoration florale", "Saveurs sur mesure"],
   },
   {
