@@ -35,7 +35,7 @@ const portfolioItems = [
   },
   {
     id: 4,
-    title: "Anniversaire surprise scénarisé",
+    title: "Demande en mariage scénarisée",
     category: "Événementiel Privé",
     location: "Île-de-France",
     description: "Organisation complète d'une demande en mariage scénarisée avec escape game personnalisé et réception intime.",
