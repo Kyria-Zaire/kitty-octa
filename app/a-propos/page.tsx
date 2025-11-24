@@ -114,14 +114,14 @@ export default function AboutPage() {
                   <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary-200 shadow-lg">
                     <Image
                       src="/images/IMG_9685.jpeg"
-                      alt="Octavie MAMBU DIEMFUKA - Cheffe de projet communication & talents chez Kitty-Octa"
+                      alt="Octavie - Cheffe de projet communication & talents chez Kitty-Octa"
                       width={128}
                       height={128}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mb-1">
-                    Octavie MAMBU DIEMFUKA
+                    Octavie
                   </h2>
                   <p className="text-base text-primary-600 font-semibold">
                     Cheffe de projet communication & talents
