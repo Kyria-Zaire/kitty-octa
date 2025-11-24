@@ -115,7 +115,7 @@ Le site est configuré pour utiliser Google Analytics. Pour l'activer :
 ## 📧 Contact
 
 - Email : mambuocta@jotmail.com
-- Téléphone : 07 61 79 66 28
+- Téléphone : +33 7 61 79 66 28
 - Zone : Paris / Amiens (Hauts-de-France & Île-de-France)
 
 ---
