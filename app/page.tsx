@@ -6,10 +6,10 @@ import Testimonials from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Kitty-Octa | Événementiel sur mesure & Wedding Planning",
-  description: "Organisation d'événements sur mesure, wedding planning et création de layer cakes artisanaux. Créativité, rigueur et sens du détail pour sublimer vos moments précieux.",
+  description: "OctaviEvent s'inscrit comme l'une des branches de Kitty-Octa, un univers façonné par la passion de célébrer les moments de vie avec élégance, émotion et authenticité. Wedding planning, organisation d'événements, décoration, papeterie personnalisée et création de layer cakes sur mesure.",
   openGraph: {
     title: "Kitty-Octa | Événementiel sur mesure & Wedding Planning",
-    description: "Organisation d'événements sur mesure, wedding planning et création de layer cakes artisanaux. Créativité, rigueur et sens du détail pour sublimer vos moments précieux.",
+    description: "OctaviEvent s'inscrit comme l'une des branches de Kitty-Octa, un univers façonné par la passion de célébrer les moments de vie avec élégance, émotion et authenticité. Wedding planning, organisation d'événements, décoration, papeterie personnalisée et création de layer cakes sur mesure.",
     type: "website",
     locale: "fr_FR",
   },

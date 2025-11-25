@@ -32,8 +32,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-sm text-gray-600 mb-3 max-w-md">
-              Événementiel sur mesure, wedding planning et création de layer cakes.
-              Créativité, rigueur et sens du détail pour sublimer vos moments précieux.
+              OctaviEvent s'inscrit comme l'une des branches de la filiale Kitty-Octa, un univers façonné par la passion de célébrer les moments de vie avec élégance, émotion et authenticité. Chaque événement est imaginé comme une composition sur mesure, où chaque détail est pensé pour créer une atmosphère sincère, douce et mémorable.
             </p>
             <div className="flex space-x-3">
               <a
@@ -91,13 +90,8 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-900 mb-3">Contact</h4>
             <ul className="space-y-1.5 text-xs text-gray-600">
               <li>
-                <a href="mailto:mambuocta@jotmail.com" className="hover:text-primary-600 transition-colors">
-                  mambuocta@jotmail.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+33761796628" className="hover:text-primary-600 transition-colors">
-                  +33 7 61 79 66 28
+                <a href="mailto:kitty-octa@outlook.fr" className="hover:text-primary-600 transition-colors">
+                  kitty-octa@outlook.fr
                 </a>
               </li>
               <li>

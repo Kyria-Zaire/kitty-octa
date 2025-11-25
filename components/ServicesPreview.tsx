@@ -24,6 +24,11 @@ const services = [
     description: "Pâtisseries décoratives sur mesure, véganes, thématiques et artistiques.",
     icon: "🎂",
   },
+  {
+    title: "Papeterie personnalisée",
+    description: "Invitations, marque-places, menus et filtres Snapchat sur mesure.",
+    icon: "✉️",
+  },
 ];
 
 export default function ServicesPreview() {

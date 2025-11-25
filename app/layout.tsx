@@ -16,13 +16,13 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Kitty-Octa | Événementiel sur mesure & Wedding Planning",
-  description: "Organisation d'événements sur mesure, wedding planning et création de layer cakes. Créativité, rigueur et sens du détail pour sublimer vos moments précieux.",
-  keywords: ["événementiel", "wedding planning", "organisation d'événements", "layer cakes", "mariage", "événements sur mesure", "Kitty-Octa", "OctaviEvent"],
+  description: "OctaviEvent s'inscrit comme l'une des branches de Kitty-Octa, un univers façonné par la passion de célébrer les moments de vie avec élégance, émotion et authenticité. Wedding planning, organisation d'événements, décoration, papeterie personnalisée et création de layer cakes sur mesure.",
+  keywords: ["événementiel", "wedding planning", "organisation d'événements", "layer cakes", "mariage", "événements sur mesure", "Kitty-Octa", "OctaviEvent", "papeterie personnalisée", "décoration événements"],
   authors: [{ name: "Octavie MAMBU DIEMFUKA" }],
   creator: "Octavie MAMBU DIEMFUKA",
   openGraph: {
     title: "Kitty-Octa | Événementiel sur mesure & Wedding Planning",
-    description: "Organisation d'événements sur mesure, wedding planning et création de layer cakes. Créativité, rigueur et sens du détail pour sublimer vos moments précieux.",
+    description: "OctaviEvent s'inscrit comme l'une des branches de Kitty-Octa, un univers façonné par la passion de célébrer les moments de vie avec élégance, émotion et authenticité.",
     type: "website",
     locale: "fr_FR",
     siteName: "Kitty-Octa",

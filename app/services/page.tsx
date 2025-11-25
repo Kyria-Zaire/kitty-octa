@@ -64,6 +64,20 @@ const services = [
     ],
   },
   {
+    title: "Papeterie personnalisée",
+    icon: "✉️",
+    description: "Création de papeterie sur mesure pour donner une identité unique à votre événement.",
+    details: [
+      "Invitations personnalisées",
+      "Marque-places élégants",
+      "Menus de table sur mesure",
+      "Filtres Snapchat et réseaux sociaux",
+      "Design cohérent avec votre thème",
+      "Impression de qualité",
+      "Conseil en design et typographie",
+    ],
+  },
+  {
     title: "Formation et accompagnement",
     icon: "📚",
     description: "Transmission d'expertise en gestion de projet, communication et interculturalité.",
