@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-3">
               <a
-                href="https://www.instagram.com/kitty_octa?igsh=ZGJnY3pteGtuYmZr"
+                href="https://www.instagram.com/kitty__octa?igsh=OXJweXExZjNscnhw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary-600 transition-colors"
