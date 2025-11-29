@@ -4,10 +4,46 @@ Ce guide vous explique comment configurer Google Analytics pour le site Kitty-Oc
 
 ## 📋 Étapes de configuration
 
+### 0. Créer un compte Google avec votre email Outlook (si nécessaire)
+
+**Si vous n'avez pas encore de compte Google avec votre email Outlook :**
+
+**Méthode 1 : Via la page de création de compte**
+
+1. Allez sur [accounts.google.com/signup](https://accounts.google.com/signup)
+2. **IMPORTANT** : Ne remplissez PAS le champ "Nom d'utilisateur" pour créer un Gmail
+3. Regardez **en bas de la page** ou **sous le formulaire** - vous devriez voir un lien **"Utiliser mon adresse e-mail actuelle"** ou **"Use my current email address instead"**
+4. Si vous ne le voyez pas, essayez de cliquer sur **"Créer un compte"** puis cherchez l'option
+5. Entrez votre email : `kitty-octa@outlook.fr`
+6. Cliquez sur **"Suivant"**
+7. Google vous enverra un code de vérification à votre email Outlook
+8. Vérifiez votre boîte Outlook et entrez le code reçu
+9. Créez un mot de passe pour votre compte Google
+10. Acceptez les conditions d'utilisation
+11. Votre compte Google est maintenant créé avec votre email Outlook !
+
+**Méthode 2 : Via Google Analytics directement (plus simple)**
+
+1. Allez directement sur [analytics.google.com](https://analytics.google.com/)
+2. Cliquez sur **"Commencer la mesure"** ou **"Get started"**
+3. Google vous proposera de créer un compte si vous n'en avez pas
+4. Lors de la création, choisissez **"Utiliser mon adresse e-mail actuelle"**
+5. Entrez `kitty-octa@outlook.fr`
+6. Suivez les étapes de vérification
+
+**Méthode 3 : Créer un Gmail temporaire (solution alternative)**
+
+Si les méthodes ci-dessus ne fonctionnent pas, vous pouvez :
+1. Créer un Gmail temporaire (ex: `kittyocta.analytics@gmail.com`)
+2. Utiliser ce compte pour Google Analytics
+3. Ajouter `kitty-octa@outlook.fr` comme email de récupération dans les paramètres du compte Google
+
+**Note** : Une fois créé, vous pourrez utiliser `kitty-octa@outlook.fr` (ou votre Gmail) pour vous connecter à tous les services Google (Analytics, Search Console, etc.)
+
 ### 1. Créer un compte Google Analytics
 
 1. Allez sur [Google Analytics](https://analytics.google.com/)
-2. Connectez-vous avec votre compte Google
+2. Connectez-vous avec votre compte Google (utilisez `kitty-octa@outlook.fr` et le mot de passe que vous venez de créer)
 3. Cliquez sur **"Commencer la mesure"**
 
 ### 2. Créer une propriété

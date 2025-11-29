@@ -34,12 +34,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/a-propos`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-  ]
-}
+        {
+          url: `${baseUrl}/a-propos`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.7,
+        },
+        {
+          url: `${baseUrl}/politique-de-confidentialite`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.5,
+        },
+        {
+          url: `${baseUrl}/mentions-legales`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.5,
+        },
+      ]
+    }
 

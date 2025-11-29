@@ -114,8 +114,8 @@ Le site est configuré pour utiliser Google Analytics. Pour l'activer :
 
 ## 📧 Contact
 
-- Email : mambuocta@jotmail.com
-- Téléphone : +33 7 61 79 66 28
+- Email : kitty-octa@outlook.fr
+- WhatsApp : Disponible via le lien dans le footer
 - Zone : Paris / Amiens (Hauts-de-France & Île-de-France)
 
 ---

@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ConditionalLayout from "@/components/ConditionalLayout";
+import CookieBanner from "@/components/CookieBanner";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <GoogleAnalytics />
         <ConditionalLayout>{children}</ConditionalLayout>
+        <CookieBanner />
       </body>
     </html>
   );

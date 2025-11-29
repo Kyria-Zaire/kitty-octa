@@ -2,22 +2,58 @@
 
 import Script from "next/script";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { pageview } from "@/lib/analytics";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
+  const [consentGiven, setConsentGiven] = useState(false);
 
   useEffect(() => {
-    if (GA_ID && typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
+      // Vérifier le consentement existant
+      const checkConsent = () => {
+        const consent = localStorage.getItem("cookie_consent");
+        if (consent === "true") {
+          const preferences = localStorage.getItem("cookie_preferences");
+          if (preferences) {
+            const prefs = JSON.parse(preferences);
+            if (prefs.analytics) {
+              setConsentGiven(true);
+            }
+          }
+        }
+      };
+
+      checkConsent();
+
+      // Écouter les changements de consentement
+      const handleConsentUpdate = (e: CustomEvent) => {
+        if (e.detail?.analytics) {
+          setConsentGiven(true);
+        } else {
+          setConsentGiven(false);
+        }
+      };
+
+      window.addEventListener("cookieConsentUpdated", handleConsentUpdate as EventListener);
+
+      return () => {
+        window.removeEventListener("cookieConsentUpdated", handleConsentUpdate as EventListener);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (GA_ID && consentGiven && typeof window !== "undefined") {
       const url = pathname + (window.location.search || "");
       pageview(url);
     }
-  }, [pathname]);
+  }, [pathname, consentGiven]);
 
-  if (!GA_ID) {
+  if (!GA_ID || !consentGiven) {
     return null;
   }
 
@@ -37,6 +73,7 @@ export default function GoogleAnalytics() {
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
               page_path: window.location.pathname,
+              anonymize_ip: true,
             });
           `,
         }}
@@ -44,4 +81,3 @@ export default function GoogleAnalytics() {
     </>
   );
 }
-

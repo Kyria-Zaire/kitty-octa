@@ -115,8 +115,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Kitty-Octa - OctaviEvent. Tous droits réservés.</p>
+        <div className="mt-6 pt-6 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+            <p>&copy; {new Date().getFullYear()} Kitty-Octa - OctaviEvent. Tous droits réservés.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/politique-de-confidentialite" className="hover:text-primary-600 transition-colors">
+                Politique de confidentialité
+              </Link>
+              <span className="text-gray-300">•</span>
+              <Link href="/mentions-legales" className="hover:text-primary-600 transition-colors">
+                Mentions légales
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       </div>
