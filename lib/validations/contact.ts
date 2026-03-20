@@ -19,7 +19,10 @@ export const step1Schema = z.object({
     .email("Veuillez entrer une adresse email valide."),
   phone: z
     .string()
-    .max(20, "Numéro de téléphone trop long.")
+    .regex(
+      /^(\+33|0)[1-9](\d{2}){4}$/,
+      "Veuillez entrer un numéro de téléphone français valide."
+    )
     .optional()
     .or(z.literal("")),
 });
@@ -27,10 +30,27 @@ export const step1Schema = z.object({
 /* ── Step 2: Event Details ── */
 
 export const step2Schema = z.object({
-  eventType: z.enum(
-    ["wedding", "corporate", "private", "cake", "decoration", "training", "other"],
-    { message: "Veuillez sélectionner un type d\u2019événement." }
-  ),
+  eventType: z
+    .string()
+    .min(1, "Veuillez sélectionner un type d'événement.")
+    .refine(
+      (value) =>
+        [
+          "wedding",
+          "corporate",
+          "private",
+          "cake",
+          "decoration",
+          "training",
+          "other",
+          "Mariage",
+          "Corporate",
+          "Privé",
+          "Prive",
+          "Autre",
+        ].includes(value),
+      "Type d'événement non reconnu."
+    ),
   eventDate: z
     .string()
     .optional()
@@ -50,12 +70,16 @@ export const step2Schema = z.object({
 export const step3Schema = z.object({
   message: z
     .string()
-    .min(10, "Votre message doit contenir au moins 10 caractères.")
+    .min(20, "Votre message doit contenir au moins 20 caractères.")
     .max(5000, "Votre message ne doit pas dépasser 5 000 caractères."),
+  rgpd: z
+    .boolean()
+    .default(true)
+    .refine((value) => value === true, "Vous devez accepter le traitement RGPD."),
 });
 
 /* ── Full Contact Form Schema ── */
 
 export const contactFormSchema = step1Schema.merge(step2Schema).merge(step3Schema);
 
-export type ContactFormData = z.infer<typeof contactFormSchema>;
+export type ContactFormData = z.input<typeof contactFormSchema>;
