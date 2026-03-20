@@ -1,0 +1,53 @@
+name: CI — Kitty-Octa
+
+on:
+  push:
+    branches: [develop, recette, preprod, main]
+  pull_request:
+    branches: [develop, main]
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  quality:
+    name: Quality Gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run type-check
+      - run: npm run test:ci
+        env:
+          NODE_ENV: test
+          SKIP_ENV_CHECK: "true"
+          ADMIN_PASSWORD_HASH: "$2b$12$placeholder00000000000000000000000000000000000000000000"
+          SESSION_SECRET: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+  build:
+    name: Build verification
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build
+        env:
+          SKIP_ENV_CHECK: "true"
+          NEXT_PUBLIC_APP_ENV: ci
+          ADMIN_PASSWORD_HASH: "$2b$12$placeholder00000000000000000000000000000000000000000000"
+          SESSION_SECRET: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          STRIPE_SECRET_KEY: "sk_test_placeholder"
+          UPSTASH_REDIS_REST_URL: "https://placeholder.upstash.io"
+          UPSTASH_REDIS_REST_TOKEN: "placeholder"
+          RESEND_API_KEY: "re_placeholder"
+          KITTY_EMAIL: "test@kitty-octa.fr"

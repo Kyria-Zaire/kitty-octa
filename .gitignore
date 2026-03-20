@@ -26,6 +26,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+.env.local
+.env.recette
+.env.preprod
 
 # vercel
 .vercel
@@ -33,4 +37,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Coverage Jest
+coverage/
+
+# Backup local
+kitty-octa-backup/
 
