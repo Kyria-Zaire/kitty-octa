@@ -1,87 +1,47 @@
-// Google Analytics helper functions
+type GtagParams = Record<string, string | number | boolean | undefined>;
 
+export function trackPageView(url: string): void {
+  if (typeof window === "undefined") return;
+  if (!window.gtag) return;
+  window.gtag("event", "page_view", { page_path: url });
+}
+
+export function trackEvent(
+  action: string,
+  category: string,
+  label?: string,
+  value?: number
+): void {
+  if (typeof window === "undefined") return;
+  if (!window.gtag) return;
+  window.gtag("event", action, {
+    event_category: category,
+    event_label: label,
+    value,
+  });
+}
+
+// Alias semantiques pour les events Kitty-Octa
+export const trackCTA = (label: string, location?: string) =>
+  trackEvent("cta_click", "engagement", location ? `${label} - ${location}` : label);
+
+export const trackContactFormStep = (step: number) =>
+  trackEvent("form_step", "contact", `step_${step}`);
+
+export const trackContactFormSubmit = () =>
+  trackEvent("form_submit", "contact", "success");
+
+// Compat legacy
+export const pageview = trackPageView;
+
+// Declaration globale pour TypeScript strict
 declare global {
   interface Window {
     gtag: (
-      command: string,
-      targetId: string,
-      config?: Record<string, any>
+      command: "event" | "config" | "js",
+      target: string,
+      params?: GtagParams
     ) => void;
   }
 }
-
-// Track page views
-export const pageview = (url: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', process.env.NEXT_PUBLIC_GA_ID || '', {
-      page_path: url,
-    });
-  }
-};
-
-// Track custom events
-export const event = ({
-  action,
-  category,
-  label,
-  value,
-}: {
-  action: string;
-  category: string;
-  label?: string;
-  value?: number;
-}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    });
-  }
-};
-
-// Track CTA clicks
-export const trackCTA = (ctaName: string, location: string) => {
-  event({
-    action: 'click',
-    category: 'CTA',
-    label: `${ctaName} - ${location}`,
-  });
-};
-
-// Track form submissions
-export const trackFormSubmit = (formName: string) => {
-  event({
-    action: 'submit',
-    category: 'Form',
-    label: formName,
-  });
-};
-
-// Track navigation
-export const trackNavigation = (destination: string) => {
-  event({
-    action: 'navigate',
-    category: 'Navigation',
-    label: destination,
-  });
-};
-
-// Track portfolio item views
-export const trackPortfolioView = (itemTitle: string) => {
-  event({
-    action: 'view',
-    category: 'Portfolio',
-    label: itemTitle,
-  });
-};
-
-// Track service tab clicks
-export const trackServiceTab = (serviceName: string) => {
-  event({
-    action: 'click',
-    category: 'Service',
-    label: serviceName,
-  });
-};
 

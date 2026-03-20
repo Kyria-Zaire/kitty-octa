@@ -1,0 +1,8 @@
+## PRD contract — où le lire
+
+La source de vérité produit est `docs/PRD-Template.md`.
+
+Règle de travail :
+- Avant toute feature, vérifier que l’implémentation correspond au PRD.
+- Toute divergence → PRD prioritaire, code à ajuster.
+

@@ -1,57 +1,56 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
+
+const BASE_URL = "https://kitty-octa.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kitty-octa.com' // À remplacer par votre URL de production
-
   return [
     {
-      url: baseUrl,
+      url: BASE_URL,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/services`,
+      url: `${BASE_URL}/services`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/portfolio`,
+      url: `${BASE_URL}/portfolio`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/tarifs`,
+      url: `${BASE_URL}/tarifs`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${BASE_URL}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
-        {
-          url: `${baseUrl}/a-propos`,
-          lastModified: new Date(),
-          changeFrequency: 'monthly',
-          priority: 0.7,
-        },
-        {
-          url: `${baseUrl}/politique-de-confidentialite`,
-          lastModified: new Date(),
-          changeFrequency: 'monthly',
-          priority: 0.5,
-        },
-        {
-          url: `${baseUrl}/mentions-legales`,
-          lastModified: new Date(),
-          changeFrequency: 'monthly',
-          priority: 0.5,
-        },
-      ]
-    }
-
+    {
+      url: `${BASE_URL}/a-propos`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/politique-de-confidentialite`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/mentions-legales`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+  ];
+}

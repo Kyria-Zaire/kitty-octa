@@ -1,0 +1,72 @@
+{
+  "project": {
+    "name": "kitty-octa",
+    "displayName": "OctaviEvent by Kitty-Octa",
+    "type": "nextjs-luxury-platform",
+    "description": "Plateforme événementielle premium — Amiens, Hauts-de-France"
+  },
+
+  "roles": {
+    "default": "tech-lead-senior",
+    "available": [
+      "constructeur-ui",
+      "architecte-api",
+      "ingenieur",
+      "reviewer-securite-code",
+      "createur-workflow"
+    ],
+    "autoSelect": true
+  },
+
+  "codeStyle": {
+    "language": "typescript",
+    "strict": true,
+    "noAny": true,
+    "noConsoleLog": true,
+    "maxComponentLines": 200,
+    "maxFunctionLines": 50
+  },
+
+  "security": {
+    "noMathRandom": true,
+    "noPlaintextSecrets": true,
+    "noPiiInLogs": true,
+    "requireZodValidation": true,
+    "requireStripeSignature": true,
+    "requireEnvCheck": true
+  },
+
+  "environments": {
+    "dev":     { "url": "http://localhost:3000",      "stripe": "test", "sanity": "staging" },
+    "recette": { "url": "https://rec.kitty-octa.fr",  "stripe": "test", "sanity": "staging" },
+    "preprod": { "url": "https://pprod.kitty-octa.fr", "stripe": "test", "sanity": "staging" },
+    "prod":    { "url": "https://kitty-octa.fr",      "stripe": "live", "sanity": "production" }
+  },
+
+  "performance": {
+    "targets": {
+      "LCP": "< 2.5s",
+      "CLS": "< 0.1",
+      "INP": "< 200ms"
+    }
+  },
+
+  "seo": {
+    "targetKeywords": [
+      "wedding planner Amiens",
+      "organisation événement Amiens",
+      "prestataire événementiel Hauts-de-France",
+      "wedding planner Picardie",
+      "organisation mariage Amiens"
+    ],
+    "requiredMetadata": ["title", "description", "openGraph", "canonical"],
+    "requiredJsonLd": ["LocalBusiness", "ProfessionalService"]
+  },
+
+  "git": {
+    "conventionalCommits": true,
+    "protectedBranches": ["main", "preprod"],
+    "requireCIPass": true
+  }
+}
+

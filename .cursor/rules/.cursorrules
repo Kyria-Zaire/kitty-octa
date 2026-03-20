@@ -1,0 +1,27 @@
+## Règles globales (Cursor)
+
+### Qualité & TypeScript
+- Toujours utiliser TypeScript strict (pas de `any`).
+- Props et données d’entrée doivent être typées explicitement.
+
+### Next.js (App Router)
+- Server Components par défaut.
+- `"use client"` uniquement pour l’interactivité nécessaire (filtres, lightbox, formulaires multi-étapes, etc.).
+
+### Tailwind & Design System Lumière
+- Utiliser les tokens existants dans `tailwind.config.ts` (ivory/beige/gold/charcoal/taupe).
+- Fusion de classes Tailwind via `cn()` uniquement.
+
+### Performance
+- `next/image` partout pour images.
+- Préférer ratios stables (`aspect-*`) pour éviter CLS.
+
+### Sécurité (admin + API)
+- Toute logique sensible reste côté serveur (middleware, server actions, route handlers).
+- Ne jamais logger de PII en clair en production.
+- Valider toutes les entrées avec Zod sur `app/api/**` et `lib/**`.
+
+### Secrets & environnement
+- Ne jamais ajouter/commiter de secrets dans le repo.
+- Suivre `.claude/environments.md` pour la config DEV/REC/PPROD/PROD.
+

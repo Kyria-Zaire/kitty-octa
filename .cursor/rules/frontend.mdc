@@ -1,0 +1,22 @@
+## frontend.mdc — Règles appliquées à `components/**`
+
+### UI haut de gamme (Lumière)
+- Respecter la palette : `bg-ivory`, `bg-beige`, `text-charcoal`, accents `text-gold` / `bg-gold`.
+- Titres : styles serif (Playfair via tokens existants). Corps/UI : Inter.
+- Cartes : fond blanc (`bg-white`), ombre subtile (`shadow-sm`), icônes dorées fines.
+
+### Composants
+- Composants réutilisables et typés : interfaces pour les props.
+- `cn()` obligatoire pour fusion de classes.
+- `next/link` pour navigation.
+
+### Animations & “stagger”
+- Utiliser `motion-safe:*` et les animations existantes (ex: `animate-fade-in-up`).
+- Stagger pour listes courtes (3 cartes) : délais incrémentaux (0/150/300ms).
+- Respecter `prefers-reduced-motion`.
+
+### Accessibilité
+- Contrastes suffisants.
+- Boutons sans label : `aria-label` si nécessaire.
+- Focus visible (cohérent avec `:focus-visible` global).
+

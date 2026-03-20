@@ -1,0 +1,8 @@
+## BMAD contract — où le lire
+
+La source de vérité process est `docs/BMAD-methode.md`.
+
+Règle de travail :
+- Utiliser les phases B→M→A→D et valider les critères de passage.
+- Si une demande n’a pas de US/feature claire → demander un PRD/brief avant de coder.
+

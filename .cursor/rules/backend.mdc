@@ -1,0 +1,19 @@
+## backend.mdc — Règles appliquées à `app/api/**`, `lib/**`
+
+### Contrats API
+- Valider toute entrée avec Zod (`safeParse`) et renvoyer des erreurs structurées.
+- Respecter les status codes standard (`200`, `400`, `429`, `500`).
+
+### Sécurité OWASP (focus)
+- Pas de secrets exposés au client.
+- Auth admin : cookies `httpOnly`, vérifier strictement avant accès.
+- Rate limiting anti-spam : éviter les solutions purement in-memory en production (préférer store partagé).
+
+### RGPD / logs
+- Ne jamais logger le message complet / email / téléphone en clair en production.
+- Tronquer ou agréger les logs.
+
+### Headers & erreurs
+- Retour d’erreurs propre via `NextResponse.json`.
+- Ne pas divulguer de détails internes dans les réponses.
+
