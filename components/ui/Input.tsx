@@ -1,64 +1,63 @@
-import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { forwardRef, type ComponentPropsWithoutRef } from 'react'
+import { cn } from '@/lib/utils'
 
-/* ── Props Interface ── */
+// ── Types ──────────────────────────────────────────────
 
-interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
-  /** Label text displayed above the input */
-  label?: string;
-  /** Error message shown below the input */
-  error?: string;
-  /** Helper text shown below the input when no error */
-  hint?: string;
-  /** Size preset */
-  size?: "sm" | "md" | "lg";
+interface InputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'> {
+  /** Label toujours visible au-dessus du champ */
+  label: string
+  /** Message d'erreur en rouge sémantique */
+  error?: string
+  /** Texte d'aide en taupe */
+  hint?: string
+  /** Champ obligatoire */
+  required?: boolean
 }
 
-const sizeStyles = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2.5 text-sm",
-  lg: "px-4 py-3.5 text-base",
-} as const;
+// ── Component ──────────────────────────────────────────
 
 /**
- * Lumière Design System — Input
+ * Design System Kitty-Octa — Input
  *
- * Text input with optional label, error, and hint states.
- * Uses ivory background with gold focus ring for the luxury aesthetic.
+ * Text input avec label obligatoire, erreur, et hint.
+ * Background blanc pour lisibilité sur fond ivory, focus ring gold.
  */
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, hint, size = "md", className, id, ...rest }, ref) => {
-    const inputId = id || label?.toLowerCase().replace(/\s+/g, "-");
+  ({ label, error, hint, required, className, id, ...rest }, ref) => {
+    const inputId = id ?? label.toLowerCase().replace(/\s+/g, '-')
 
     return (
       <div className="w-full">
-        {label && (
-          <label
-            htmlFor={inputId}
-            className="mb-1.5 block text-sm font-medium text-charcoal"
-          >
-            {label}
-          </label>
-        )}
+        <label
+          htmlFor={inputId}
+          className="mb-1.5 block text-sm font-medium text-charcoal"
+        >
+          {label}
+          {required && (
+            <span className="ml-0.5 text-gold" aria-hidden="true">
+              *
+            </span>
+          )}
+        </label>
+
         <input
           ref={ref}
           id={inputId}
+          required={required}
           className={cn(
-            /* Base */
-            "w-full rounded-md border bg-white font-sans",
-            "transition-colors duration-200",
-            "placeholder:text-taupe-light",
-            /* Focus */
-            "focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20",
-            /* Size */
-            sizeStyles[size],
-            /* State */
+            // Base
+            'w-full rounded-[2px] border bg-white px-4 py-2.5 text-sm font-dm-sans',
+            'transition-colors duration-200',
+            'placeholder:text-taupe/60',
+            // Focus
+            'focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
+            // State
             error
-              ? "border-error text-charcoal focus:border-error focus:ring-error/20"
-              : "border-beige text-charcoal",
-            className
+              ? 'border-red-500 text-charcoal focus:border-red-500 focus:ring-red-500/20'
+              : 'border-taupe/30 text-charcoal',
+            className,
           )}
-          aria-invalid={error ? "true" : undefined}
+          aria-invalid={error ? 'true' : undefined}
           aria-describedby={
             error
               ? `${inputId}-error`
@@ -68,24 +67,25 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           }
           {...rest}
         />
+
         {error && (
           <p
             id={`${inputId}-error`}
-            className="mt-1.5 text-xs text-error"
+            className="mt-1.5 text-xs text-red-500"
             role="alert"
           >
             {error}
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-1.5 text-xs text-taupe-light">
+          <p id={`${inputId}-hint`} className="mt-1.5 text-xs text-taupe">
             {hint}
           </p>
         )}
       </div>
-    );
-  }
-);
+    )
+  },
+)
 
-Input.displayName = "Input";
-export default Input;
+Input.displayName = 'Input'
+export default Input

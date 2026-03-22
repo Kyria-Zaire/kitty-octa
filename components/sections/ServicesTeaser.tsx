@@ -45,7 +45,7 @@ const services = [
  */
 export default function ServicesTeaser() {
   return (
-    <SectionWrapper variant="beige" spacing="lg">
+    <SectionWrapper variant="beige" size="lg">
       <div className="text-center mb-16">
         <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
           Nos prestations
@@ -53,7 +53,7 @@ export default function ServicesTeaser() {
         <h2 className="font-serif text-3xl font-bold text-charcoal md:text-heading-1">
           Un savoir-faire sur mesure
         </h2>
-        <Divider variant="ornament" className="mx-auto mt-6 max-w-xs" />
+        <Divider variant="ornamental" className="mx-auto mt-6 max-w-xs" />
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-taupe">
           Une offre complète et personnalisée pour transformer vos événements
           en moments inoubliables.
@@ -64,7 +64,7 @@ export default function ServicesTeaser() {
         {services.map((service) => (
           <Card
             key={service.title}
-            variant="service"
+            variant="default"
             className="motion-safe:animate-fade-in-up text-center"
           >
             <CardHeader className="flex flex-col items-center">

@@ -23,7 +23,7 @@ export default function NotFound() {
           Page introuvable
         </h2>
 
-        <Divider variant="ornament" className="mx-auto my-6 max-w-xs" />
+        <Divider variant="ornamental" className="mx-auto my-6 max-w-xs" />
 
         <p className="mx-auto max-w-md text-base leading-relaxed text-taupe">
           D&eacute;sol&eacute;, la page que vous recherchez n&apos;existe pas ou a &eacute;t&eacute; d&eacute;plac&eacute;e.
@@ -35,7 +35,7 @@ export default function NotFound() {
           <Button variant="primary" href="/" size="lg">
             Retour &agrave; l&apos;accueil
           </Button>
-          <Button variant="outline" href="/contact" size="lg">
+          <Button variant="secondary" href="/contact" size="lg">
             Nous contacter
           </Button>
         </div>

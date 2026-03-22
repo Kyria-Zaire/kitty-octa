@@ -166,7 +166,7 @@ export default function ContactPage() {
           backgroundImage="https://images.unsplash.com/photo-1633526543814-9718c8922b7a?q=80&w=1170&auto=format&fit=crop"
           backgroundAlt="Contact OctaviEvent"
         />
-        <SectionWrapper variant="ivory" spacing="lg">
+        <SectionWrapper variant="ivory" size="lg">
           <div className="mx-auto max-w-lg text-center motion-safe:animate-fade-in-up">
             {/* Checkmark */}
             <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-success/10">
@@ -190,7 +190,7 @@ export default function ContactPage() {
               Votre demande a bien été envoyée. Nous vous répondrons sous 48 heures
               ouvrables. En attendant, n&apos;hésitez pas à consulter notre portfolio.
             </p>
-            <Divider variant="ornament" className="mx-auto my-8 max-w-xs" />
+            <Divider variant="ornamental" className="mx-auto my-8 max-w-xs" />
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Button variant="primary" href="/portfolio">
                 Voir le portfolio
@@ -217,7 +217,7 @@ export default function ContactPage() {
         backgroundAlt="Contact OctaviEvent"
       />
 
-      <SectionWrapper variant="ivory" spacing="lg">
+      <SectionWrapper variant="ivory" size="lg">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-5">
           {/* ── Left Column: Info ── */}
           <aside className="lg:col-span-2">
@@ -229,7 +229,7 @@ export default function ContactPage() {
               Vous pouvez également nous contacter directement.
             </p>
 
-            <Divider variant="line" className="my-6" />
+            <Divider variant="default" className="my-6" />
 
             <ul className="space-y-4">
               <li className="flex items-start gap-3">

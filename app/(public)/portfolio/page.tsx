@@ -124,8 +124,8 @@ export default function PortfolioPage() {
     activeFilter === "Tous"
       ? portfolioItems
       : portfolioItems.filter(
-          (item) => categoryMap[item.category] === activeFilter
-        );
+        (item) => categoryMap[item.category] === activeFilter
+      );
 
   /* ── Modal Logic ── */
 
@@ -173,7 +173,7 @@ export default function PortfolioPage() {
         backgroundAlt="Réalisations événementielles par OctaviEvent"
       />
 
-      <SectionWrapper variant="ivory" spacing="lg">
+      <SectionWrapper variant="ivory" size="lg">
         {/* ── Filter Bar ── */}
         <div className="mb-12 flex flex-wrap justify-center gap-2">
           {categories.map((cat) => (

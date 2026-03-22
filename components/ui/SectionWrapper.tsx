@@ -1,57 +1,63 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-/* ── Variant & Spacing Maps ── */
+// ── Types ──────────────────────────────────────────────
 
-const variantStyles = {
-  ivory: "bg-ivory text-taupe",
-  beige: "bg-beige text-taupe",
-  charcoal: "bg-charcoal text-white",
-} as const;
-
-const spacingStyles = {
-  sm: "py-12 md:py-16",
-  md: "py-16 md:py-24",
-  lg: "py-20 md:py-32",
-} as const;
-
-/* ── Props Interface ── */
+type SectionVariant = 'ivory' | 'beige' | 'charcoal' | 'white'
+type SectionSize = 'sm' | 'md' | 'lg'
 
 interface SectionWrapperProps {
+  children: React.ReactNode
   /** Background variant */
-  variant?: keyof typeof variantStyles;
-  /** Vertical spacing preset */
-  spacing?: keyof typeof spacingStyles;
+  variant?: SectionVariant
+  /** Vertical padding preset */
+  size?: SectionSize
   /** Additional CSS classes */
-  className?: string;
+  className?: string
   /** Anchor ID for in-page navigation */
-  id?: string;
+  id?: string
   /** Semantic HTML tag */
-  as?: "section" | "div" | "aside";
-  children: React.ReactNode;
+  as?: 'section' | 'div' | 'article'
 }
 
+// ── Style Maps ─────────────────────────────────────────
+
+const variantStyles: Record<SectionVariant, string> = {
+  ivory: 'bg-ivory text-charcoal',
+  beige: 'bg-beige text-charcoal',
+  charcoal: 'bg-charcoal text-ivory [&_h2]:text-ivory',
+  white: 'bg-white text-charcoal',
+}
+
+const sizeStyles: Record<SectionSize, string> = {
+  sm: 'py-12 md:py-16',
+  md: 'py-16 md:py-24',
+  lg: 'py-24 md:py-32',
+}
+
+// ── Component ──────────────────────────────────────────
+
 /**
- * Lumière Design System — SectionWrapper
+ * Design System Kitty-Octa — SectionWrapper
  *
- * Consistent section container with background variants and responsive spacing.
- * Handles horizontal padding for mobile (px-4) and desktop (px-8) uniformly.
+ * Section container with background variants, responsive vertical spacing,
+ * and luxury horizontal padding (px-6 md:px-12 lg:px-20).
  */
 export default function SectionWrapper({
-  variant = "ivory",
-  spacing = "md",
+  variant = 'ivory',
+  size = 'md',
   className,
   id,
-  as: Tag = "section",
+  as: Tag = 'section',
   children,
 }: SectionWrapperProps) {
   return (
     <Tag
       id={id}
-      className={cn(variantStyles[variant], spacingStyles[spacing], className)}
+      className={cn(variantStyles[variant], sizeStyles[size], className)}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
         {children}
       </div>
     </Tag>
-  );
+  )
 }

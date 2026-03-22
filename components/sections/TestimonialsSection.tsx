@@ -55,7 +55,7 @@ function StarRating({ rating }: { rating: number }) {
  */
 export default function TestimonialsSection() {
   return (
-    <SectionWrapper variant="charcoal" spacing="lg">
+    <SectionWrapper variant="charcoal" size="lg">
       <div className="text-center mb-16">
         <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
           Témoignages
@@ -63,14 +63,14 @@ export default function TestimonialsSection() {
         <h2 className="font-serif text-3xl font-bold text-white md:text-heading-1">
           Ce que nos clients disent de nous
         </h2>
-        <Divider variant="ornament" className="mx-auto mt-6 max-w-xs [&_span:first-child]:bg-ivory/20 [&_span:last-child]:bg-ivory/20" />
+        <Divider variant="ornamental" className="mx-auto mt-6 max-w-xs [&_span:first-child]:bg-ivory/20 [&_span:last-child]:bg-ivory/20" />
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         {testimonials.map((testimonial) => (
           <Card
             key={testimonial.name}
-            variant="testimonial"
+            variant="dark"
             className="motion-safe:animate-fade-in-up"
           >
             <CardContent>

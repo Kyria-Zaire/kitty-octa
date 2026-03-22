@@ -1,57 +1,65 @@
-import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { forwardRef, type ComponentPropsWithoutRef } from 'react'
+import { cn } from '@/lib/utils'
 
-/* ── Props Interface ── */
+// ── Types ──────────────────────────────────────────────
 
-interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  /** Label text displayed above the textarea */
-  label?: string;
-  /** Error message shown below the textarea */
-  error?: string;
-  /** Helper text shown below the textarea when no error */
-  hint?: string;
+interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
+  /** Label toujours visible au-dessus du champ */
+  label: string
+  /** Message d'erreur en rouge sémantique */
+  error?: string
+  /** Texte d'aide en taupe */
+  hint?: string
+  /** Champ obligatoire */
+  required?: boolean
 }
 
+// ── Component ──────────────────────────────────────────
+
 /**
- * Lumière Design System — Textarea
+ * Design System Kitty-Octa — Textarea
  *
- * Multi-line text input with the same visual language as Input.
- * Uses ivory background with gold focus ring.
+ * Multi-line input avec le même langage visuel que Input.
+ * Rows par défaut : 4.
  */
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ label, error, hint, className, id, rows = 5, ...rest }, ref) => {
-    const textareaId = id || label?.toLowerCase().replace(/\s+/g, "-");
+  ({ label, error, hint, required, className, id, rows = 4, ...rest }, ref) => {
+    const textareaId = id ?? label.toLowerCase().replace(/\s+/g, '-')
 
     return (
       <div className="w-full">
-        {label && (
-          <label
-            htmlFor={textareaId}
-            className="mb-1.5 block text-sm font-medium text-charcoal"
-          >
-            {label}
-          </label>
-        )}
+        <label
+          htmlFor={textareaId}
+          className="mb-1.5 block text-sm font-medium text-charcoal"
+        >
+          {label}
+          {required && (
+            <span className="ml-0.5 text-gold" aria-hidden="true">
+              *
+            </span>
+          )}
+        </label>
+
         <textarea
           ref={ref}
           id={textareaId}
           rows={rows}
+          required={required}
           className={cn(
-            /* Base */
-            "w-full rounded-md border bg-white font-sans px-4 py-2.5 text-sm",
-            "transition-colors duration-200",
-            "placeholder:text-taupe-light",
-            "resize-y min-h-[100px]",
-            /* Focus */
-            "focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20",
-            /* State */
+            // Base
+            'w-full rounded-[2px] border bg-white px-4 py-2.5 text-sm font-dm-sans',
+            'transition-colors duration-200',
+            'placeholder:text-taupe/60',
+            'resize-y min-h-[100px]',
+            // Focus
+            'focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
+            // State
             error
-              ? "border-error text-charcoal focus:border-error focus:ring-error/20"
-              : "border-beige text-charcoal",
-            className
+              ? 'border-red-500 text-charcoal focus:border-red-500 focus:ring-red-500/20'
+              : 'border-taupe/30 text-charcoal',
+            className,
           )}
-          aria-invalid={error ? "true" : undefined}
+          aria-invalid={error ? 'true' : undefined}
           aria-describedby={
             error
               ? `${textareaId}-error`
@@ -61,27 +69,25 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           }
           {...rest}
         />
+
         {error && (
           <p
             id={`${textareaId}-error`}
-            className="mt-1.5 text-xs text-error"
+            className="mt-1.5 text-xs text-red-500"
             role="alert"
           >
             {error}
           </p>
         )}
         {hint && !error && (
-          <p
-            id={`${textareaId}-hint`}
-            className="mt-1.5 text-xs text-taupe-light"
-          >
+          <p id={`${textareaId}-hint`} className="mt-1.5 text-xs text-taupe">
             {hint}
           </p>
         )}
       </div>
-    );
-  }
-);
+    )
+  },
+)
 
-Textarea.displayName = "Textarea";
-export default Textarea;
+Textarea.displayName = 'Textarea'
+export default Textarea

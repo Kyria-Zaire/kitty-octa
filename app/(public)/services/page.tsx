@@ -168,7 +168,7 @@ export default function ServicesPage() {
       </div>
 
       {/* ── Active Service Detail ── */}
-      <SectionWrapper variant="ivory" spacing="lg">
+      <SectionWrapper variant="ivory" size="lg">
         <div className="mx-auto max-w-4xl">
           <Card variant="default" className="bg-white p-8 shadow-md md:p-10">
             <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
               </div>
             </CardHeader>
 
-            <Divider variant="line" className="my-6" />
+            <Divider variant="default" className="my-6" />
 
             <CardContent>
               <h3 className="mb-4 text-sm font-semibold text-charcoal">

@@ -150,7 +150,7 @@ export default function HomePage() {
             <Button variant="primary" size="lg" href="/services" className="min-w-[200px]">
               View Services
             </Button>
-            <Button variant="outline" size="lg" href="/contact" className="min-w-[200px]">
+            <Button variant="secondary" size="lg" href="/contact" className="min-w-[200px]">
               Book Consultation
             </Button>
           </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-14 text-center">
-          <Button variant="outline" size="md" href="/portfolio">
+          <Button variant="secondary" size="md" href="/portfolio">
             View Full Portfolio
           </Button>
         </div>
@@ -310,7 +310,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-10">
-              <Button variant="outline" size="md" href="/a-propos">
+              <Button variant="secondary" size="md" href="/a-propos">
                 Discover Our Story
               </Button>
             </div>

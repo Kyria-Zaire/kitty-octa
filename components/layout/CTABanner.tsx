@@ -37,12 +37,12 @@ export default function CTABanner({
   return (
     <SectionWrapper
       variant={variant}
-      spacing="lg"
+      size="lg"
       className={cn(className)}
     >
       <div className="mx-auto max-w-2xl text-center">
         <Divider
-          variant="ornament"
+          variant="ornamental"
           className={cn(
             "mx-auto mb-8 max-w-xs",
             variant === "charcoal" && "[&_span:first-child]:bg-ivory/20 [&_span:last-child]:bg-ivory/20"

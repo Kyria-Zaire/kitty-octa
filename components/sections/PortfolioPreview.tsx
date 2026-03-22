@@ -51,7 +51,7 @@ const projects = [
  */
 export default function PortfolioPreview() {
   return (
-    <SectionWrapper variant="ivory" spacing="lg">
+    <SectionWrapper variant="ivory" size="lg">
       <div className="text-center mb-16">
         <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
           Portfolio
@@ -59,7 +59,7 @@ export default function PortfolioPreview() {
         <h2 className="font-serif text-3xl font-bold text-charcoal md:text-heading-1">
           Nos réalisations
         </h2>
-        <Divider variant="ornament" className="mx-auto mt-6 max-w-xs" />
+        <Divider variant="ornamental" className="mx-auto mt-6 max-w-xs" />
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-taupe">
           Quelques projets qui illustrent notre savoir-faire et notre créativité
         </p>
@@ -94,7 +94,7 @@ export default function PortfolioPreview() {
       </div>
 
       <div className="mt-14 text-center">
-        <Button variant="outline" href="/portfolio" size="lg">
+        <Button variant="secondary" href="/portfolio" size="lg">
           Voir tout le portfolio
         </Button>
       </div>
