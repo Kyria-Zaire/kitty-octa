@@ -1,90 +1,112 @@
-import Card, { CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Divider from "@/components/ui/Divider";
-import SectionWrapper from "@/components/ui/SectionWrapper";
+"use client";
 
-/* ── Service Teaser Data ── */
+import { motion } from "framer-motion";
+import { staggerContainer, fadeInUp } from "@/lib/animations";
+import SectionWrapper from "@/components/ui/SectionWrapper";
+import Divider from "@/components/ui/Divider";
+import Card, { CardHeader, CardContent, CardFooter } from "@/components/ui/Card";
+import Badge from "@/components/ui/Badge";
+import Button from "@/components/ui/Button";
 
 const services = [
   {
-    title: "Wedding Planning",
+    title: "Mariages",
     description:
-      "Accompagnement sur mesure des futurs mariés, du concept à la réalisation. Chaque détail est pensé pour créer un moment inoubliable.",
+      "De la coordination jour J à l'organisation complète, nous orchestrons chaque détail de votre journée la plus précieuse.",
+    tags: ["Coordination", "Décoration", "Wedding Design"],
+    href: "/services#mariages",
     icon: (
-      <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      // Simple double ring SVG
+      <svg className="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.5 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 17.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" />
       </svg>
     ),
   },
   {
-    title: "Organisation d&apos;événements",
+    title: "Événements Corporate",
     description:
-      "Mariages, séminaires, team building et soirées thématiques. Une planification rigoureuse pour des événements sans faille.",
+      "Séminaires, galas, team buildings et lancements de produits. Une organisation professionnelle à la hauteur de votre image.",
+    tags: ["Séminaires", "Galas", "Team Building"],
+    href: "/services#corporate",
     icon: (
-      <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      // Skyline/buildings SVG
+      <svg className="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 11v2m0 4v2m4-6v2m0 4v2" />
       </svg>
     ),
   },
   {
-    title: "Layer Cakes sur mesure",
+    title: "Événements Privés",
     description:
-      "Pâtisseries décoratives artisanales, véganes ou classiques. Des créations qui allient esthétique et saveur pour sublimer vos tables.",
+      "Anniversaires marquants, fiançailles, fêtes de famille. Chaque moment mérite d'être célébré avec éclat.",
+    tags: ["Anniversaires", "Fiançailles", "Fêtes"],
+    href: "/services#prives",
     icon: (
-      <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M2 20h20M4 20V10m16 10V10M6 10V6c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v4M2 10h20" />
+      // Sparkles/Celebration SVG
+      <svg className="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 8-6.4-5.6-6.4 5.6 2.4-8-6-4.8h7.6z" />
       </svg>
     ),
   },
 ];
 
-/**
- * Services Teaser — Homepage Section
- *
- * Displays 3 key services in Card (service variant) on a beige background.
- */
-export default function ServicesTeaser() {
+export function ServicesTeaser() {
   return (
-    <SectionWrapper variant="beige" size="lg">
-      <div className="text-center mb-16">
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-gold">
-          Nos prestations
-        </p>
-        <h2 className="font-serif text-3xl font-bold text-charcoal md:text-heading-1">
-          Un savoir-faire sur mesure
+    <SectionWrapper variant="ivory" size="lg">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="font-serif text-lg italic text-gold">Nos Prestations</p>
+        <h2 className="mt-4 font-serif text-4xl leading-tight text-charcoal md:text-5xl">
+          Des événements taillés<br />pour l&apos;excellence
         </h2>
-        <Divider variant="ornamental" className="mx-auto mt-6 max-w-xs" />
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-taupe">
-          Une offre complète et personnalisée pour transformer vos événements
-          en moments inoubliables.
-        </p>
+        <Divider variant="ornamental" className="mx-auto mt-8 w-48" />
       </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-        {services.map((service) => (
-          <Card
-            key={service.title}
-            variant="default"
-            className="motion-safe:animate-fade-in-up text-center"
-          >
-            <CardHeader className="flex flex-col items-center">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
-                {service.icon}
-              </div>
-              <CardTitle className="text-charcoal">{service.title}</CardTitle>
-            </CardHeader>
-            <CardDescription className="text-taupe">
-              {service.description}
-            </CardDescription>
-          </Card>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3"
+      >
+        {services.map((service, index) => (
+          <motion.div key={index} variants={fadeInUp} className="h-full">
+            <Card
+              variant="default"
+              className="group flex h-full flex-col p-8 transition-colors duration-500 hover:border-gold/40"
+            >
+              <CardHeader className="p-0">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 transition-transform duration-500 group-hover:scale-110">
+                  {service.icon}
+                </div>
+                <h3 className="font-serif text-2xl text-charcoal">{service.title}</h3>
+              </CardHeader>
+
+              <CardContent className="mt-4 flex-grow p-0">
+                <p className="text-sm leading-relaxed text-taupe">{service.description}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {service.tags.map((tag) => (
+                    <Badge key={tag} variant="muted" size="sm">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+
+              <CardFooter className="mt-8 p-0">
+                <Button variant="ghost" href={service.href} className="px-0 py-0 hover:bg-transparent -ml-2 group-hover:text-gold transition-colors">
+                  <span className="flex items-center gap-2">
+                    Découvrir
+                    <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
         ))}
-      </div>
-
-      <div className="mt-14 text-center">
-        <Button variant="primary" href="/services" size="lg">
-          Découvrir tous nos services
-        </Button>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

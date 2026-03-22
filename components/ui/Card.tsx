@@ -110,3 +110,12 @@ interface CardContentProps {
 export function CardContent({ className, children }: CardContentProps) {
   return <div className={cn(className)}>{children}</div>
 }
+
+interface CardFooterProps {
+  className?: string
+  children: React.ReactNode
+}
+
+export function CardFooter({ className, children }: CardFooterProps) {
+  return <div className={cn('flex items-center', className)}>{children}</div>
+}
