@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-/* ── Navigation Links (single source of truth) ── */
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+import Button from "@/components/ui/Button";
 
 interface NavItem {
   label: string;
@@ -14,128 +15,166 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   { label: "Accueil", href: "/" },
+  { label: "À Propos", href: "/a-propos" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Tarifs", href: "/tarifs" },
-  { label: "À propos", href: "/a-propos" },
+  { label: "Processus", href: "/process" },
 ];
 
-/**
- * Lumière Design System — Header
- *
- * Sticky navigation with ivory backdrop blur.
- * Mobile menu uses `useState` — hence "use client".
- * Desktop and mobile share the same `navLinks` array (no /blog dead link).
- */
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const scrollY = useScrollPosition();
+  const pathname = usePathname();
+
+  const isScrolled = scrollY > 80;
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-gold/10">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          {/* ── Logo ── */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/e6de5d03-0703-4070-a882-7a88bb7bdf60-removebg-preview.png"
-              alt="OctaviEvent by Kitty-Octa — Accueil"
-              width={300}
-              height={100}
-              className="h-16 w-auto object-contain"
-              priority
-            />
+    <>
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className={cn(
+          "fixed top-0 z-50 w-full transition-all duration-400 ease-luxury",
+          isScrolled
+            ? "bg-ivory/95 backdrop-blur-sm border-b border-taupe/10 text-charcoal shadow-sm"
+            : "bg-transparent text-charcoal" // Changed default to charcoal to ensure visibility uniformly, or as per spec "transparent, ivory si hero image". Assuming default mix.
+        )}
+      >
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-12 lg:px-20">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="group flex flex-col z-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span className="font-serif text-xl tracking-wide transition-colors">
+              OctaviEvent
+            </span>
+            <span className="block font-sans text-[10px] uppercase tracking-[0.2em] text-gold transition-colors group-hover:text-gold-light">
+              by Kitty-Octa
+            </span>
           </Link>
 
-          {/* ── Desktop Navigation ── */}
-          <div className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-md px-4 py-2 text-sm font-medium text-taupe",
-                  "transition-colors duration-200",
-                  "hover:bg-beige hover:text-charcoal"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className={cn(
-                "ml-2 inline-flex items-center rounded-md px-6 py-2.5",
-                "bg-charcoal text-sm font-semibold text-white",
-                "shadow-sm transition-all duration-200",
-                "hover:bg-charcoal/90 hover:shadow-md"
-              )}
-            >
-              Contact
-            </Link>
-          </div>
-
-          {/* ── Mobile Menu Button ── */}
-          <button
-            className={cn(
-              "rounded-md p-2 text-taupe md:hidden",
-              "transition-colors hover:bg-beige hover:text-charcoal"
-            )}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={isMenuOpen}
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* ── Mobile Navigation ── */}
-        {isMenuOpen && (
-          <div className="border-t border-gold/10 py-4 md:hidden">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn(
-                    "rounded-md px-4 py-3 text-sm font-medium text-taupe",
-                    "transition-colors duration-200",
-                    "hover:bg-beige hover:text-charcoal"
-                  )}
-                  onClick={() => setIsMenuOpen(false)}
+                  className="group relative px-2 py-1 text-sm font-medium tracking-wide transition-colors hover:text-gold"
                 >
                   {link.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="underline"
+                      className="absolute bottom-0 left-0 h-[1px] w-full bg-gold"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
                 </Link>
-              ))}
-              <Link
-                href="/contact"
-                className={cn(
-                  "mt-2 rounded-md px-4 py-3 text-center",
-                  "bg-charcoal text-sm font-semibold text-white",
-                  "transition-colors hover:bg-charcoal/90"
-                )}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
+              );
+            })}
+            <Button variant="gold" size="sm" href="/contact" className="ml-4">
+              Contact
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Button (Burger to X) */}
+          <button
+            className="z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Menu"
+          >
+            <motion.span
+              animate={isMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block h-[1px] w-6 bg-current transition-colors"
+            />
+            <motion.span
+              animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="block h-[1px] w-6 bg-current transition-colors"
+            />
+            <motion.span
+              animate={isMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              className="block h-[1px] w-6 bg-current transition-colors"
+            />
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-ivory px-6 pb-12 pt-32 text-charcoal md:hidden"
+          >
+            <nav className="flex flex-col items-center gap-8">
+              {[...navLinks, { label: "Contact", href: "/contact" }].map(
+                (link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{
+                      delay: 0.1 + index * 0.05,
+                      duration: 0.4,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      className="group flex flex-col items-center font-serif text-3xl"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span>{link.label}</span>
+                      {pathname === link.href && (
+                        <div className="mt-2 h-[2px] w-8 bg-gold" />
+                      )}
+                    </Link>
+                  </motion.div>
+                )
+              )}
+            </nav>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="mt-auto flex flex-col items-center gap-4 text-center"
+            >
+              <div className="flex gap-4">
+                <a href="#" className="text-taupe hover:text-gold transition-colors">
+                  IG
+                </a>
+                <a href="#" className="text-taupe hover:text-gold transition-colors">
+                  LI
+                </a>
+                <a href="#" className="text-taupe hover:text-gold transition-colors">
+                  PI
+                </a>
+              </div>
+              <p className="font-sans text-xs uppercase tracking-widest text-taupe/50">
+                OctaviEvent by Kitty-Octa
+              </p>
+            </motion.div>
+          </motion.div>
         )}
-      </nav>
-    </header>
+      </AnimatePresence>
+    </>
   );
 }

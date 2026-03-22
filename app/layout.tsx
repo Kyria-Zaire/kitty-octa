@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -21,6 +21,10 @@ const dmSans = DM_Sans({
 const SITE_URL = "https://kitty-octa.com";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&h=630&auto=format&fit=crop";
+
+export const viewport: Viewport = {
+  themeColor: "#FDF8F2",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -145,7 +149,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased font-dm-sans bg-ivory text-taupe">
+      <body className="antialiased font-dm-sans bg-ivory text-taupe pt-20">
         <GoogleAnalytics />
         {children}
         <CookieBanner />
