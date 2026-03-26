@@ -86,7 +86,7 @@ function Spinner() {
  * Sharp corners (rounded-none), uppercase tracking, luxury editorial feel.
  * Renders as Next.js Link when `href` is provided, otherwise as `<button>`.
  */
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   (
     {
       variant = 'primary',

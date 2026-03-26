@@ -22,7 +22,7 @@ interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
  * Multi-line input avec le même langage visuel que Input.
  * Rows par défaut : 4.
  */
-const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, error, hint, required, className, id, rows = 4, ...rest }, ref) => {
     const textareaId = id ?? label.toLowerCase().replace(/\s+/g, '-')
 
@@ -55,7 +55,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             'focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
             // State
             error
-              ? 'border-red-500 text-charcoal focus:border-red-500 focus:ring-red-500/20'
+              ? 'border-error text-error focus:border-error focus:ring-error/20'
               : 'border-taupe/30 text-charcoal',
             className,
           )}

@@ -21,7 +21,7 @@ interface DividerProps {
  * - `gold` : thin gold line
  * - `ornamental` : gold lines with centered diamond ◆
  */
-export default function Divider({
+export function Divider({
   variant = 'default',
   className,
 }: DividerProps) {
@@ -57,3 +57,5 @@ export default function Divider({
     />
   )
 }
+
+export default Divider

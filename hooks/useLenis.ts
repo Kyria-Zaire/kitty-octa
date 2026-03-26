@@ -1,33 +1,28 @@
-'use client'
+﻿'use client'
 
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 
-/**
- * Hook pour le smooth scroll luxury.
- * À utiliser dans le layout principal (app/layout.tsx).
- *
- * ARCH: Lenis gère le smooth scroll natif avec un easing
- * exponentiel qui donne un effet haut de gamme.
- */
 export function useLenis() {
-    useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.4,
-            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            orientation: 'vertical',
-            smoothWheel: true,
-        })
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      smoothWheel: true,
+    })
 
-        function raf(time: number) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
+    let rafId = 0
+    function raf(time: number) {
+      lenis.raf(time)
+      rafId = requestAnimationFrame(raf)
+    }
 
-        requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
-        return () => {
-            lenis.destroy()
-        }
-    }, [])
+    return () => {
+      cancelAnimationFrame(rafId)
+      lenis.destroy()
+    }
+  }, [])
 }

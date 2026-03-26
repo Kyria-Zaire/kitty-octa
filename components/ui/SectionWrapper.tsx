@@ -42,7 +42,7 @@ const sizeStyles: Record<SectionSize, string> = {
  * Section container with background variants, responsive vertical spacing,
  * and luxury horizontal padding (px-6 md:px-12 lg:px-20).
  */
-export default function SectionWrapper({
+export function SectionWrapper({
   variant = 'ivory',
   size = 'md',
   className,
@@ -61,3 +61,5 @@ export default function SectionWrapper({
     </Tag>
   )
 }
+
+export default SectionWrapper

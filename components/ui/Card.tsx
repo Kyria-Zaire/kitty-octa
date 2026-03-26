@@ -35,7 +35,7 @@ const variantStyles: Record<CardVariant, string> = {
  * Versatile container with luxury transitions.
  * Sub-components: CardHeader, CardTitle, CardDescription, CardContent.
  */
-export default function Card({
+export function Card({
   variant = 'default',
   className,
   children,
@@ -54,6 +54,8 @@ export default function Card({
     </div>
   )
 }
+
+export default Card
 
 // ── Sub-components ─────────────────────────────────────
 

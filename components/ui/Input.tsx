@@ -22,7 +22,7 @@ interface InputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'> {
  * Text input avec label obligatoire, erreur, et hint.
  * Background blanc pour lisibilité sur fond ivory, focus ring gold.
  */
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, hint, required, className, id, ...rest }, ref) => {
     const inputId = id ?? label.toLowerCase().replace(/\s+/g, '-')
 
@@ -53,7 +53,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             'focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
             // State
             error
-              ? 'border-red-500 text-charcoal focus:border-red-500 focus:ring-red-500/20'
+              ? 'border-error text-error focus:border-error focus:ring-error/20'
               : 'border-taupe/30 text-charcoal',
             className,
           )}
