@@ -1,22 +1,20 @@
 import { z } from "zod";
 
 /**
- * Contact Form — Zod Schema
+ * Formulaire de contact — Schémas Zod
  *
- * Shared between the API route (server-side validation)
- * and the client form (react-hook-form resolver).
+ * Partagé entre l'API (validation serveur)
+ * et le client (resolver react-hook-form).
  */
 
-/* ── Step 1: Identity ── */
+/* ── Étape 1 : Identité ── */
 
 export const step1Schema = z.object({
   name: z
     .string()
     .min(2, "Le nom doit contenir au moins 2 caractères.")
     .max(100, "Le nom ne doit pas dépasser 100 caractères."),
-  email: z
-    .string()
-    .email("Veuillez entrer une adresse email valide."),
+  email: z.string().email("Veuillez entrer une adresse email valide."),
   phone: z
     .string()
     .regex(
@@ -27,7 +25,7 @@ export const step1Schema = z.object({
     .or(z.literal("")),
 });
 
-/* ── Step 2: Event Details ── */
+/* ── Étape 2 : Détails ── */
 
 export const step2Schema = z.object({
   eventType: z
@@ -44,28 +42,19 @@ export const step2Schema = z.object({
           "training",
           "other",
           "Mariage",
-          "Corporate",
+          "Entreprise",
           "Privé",
           "Prive",
           "Autre",
         ].includes(value),
       "Type d'événement non reconnu."
     ),
-  eventDate: z
-    .string()
-    .optional()
-    .or(z.literal("")),
-  guestCount: z
-    .string()
-    .optional()
-    .or(z.literal("")),
-  budget: z
-    .string()
-    .optional()
-    .or(z.literal("")),
+  eventDate: z.string().optional().or(z.literal("")),
+  guestCount: z.string().optional().or(z.literal("")),
+  budget: z.string().optional().or(z.literal("")),
 });
 
-/* ── Step 3: Message ── */
+/* ── Étape 3 : Message ── */
 
 export const step3Schema = z.object({
   message: z
@@ -78,8 +67,9 @@ export const step3Schema = z.object({
     .refine((value) => value === true, "Vous devez accepter le traitement RGPD."),
 });
 
-/* ── Full Contact Form Schema ── */
+/* ── Schéma global ── */
 
 export const contactFormSchema = step1Schema.merge(step2Schema).merge(step3Schema);
 
 export type ContactFormData = z.input<typeof contactFormSchema>;
+

@@ -20,22 +20,22 @@ interface PortfolioItemData {
   highlights: string[];
 }
 
-const categories = ["Tous", "Mariages", "Corporate", "Cakes", "Privé"] as const;
+const categories = ["Tous", "Mariages", "Entreprise", "Pâtisserie", "Privé"] as const;
 type Category = (typeof categories)[number];
 
 const categoryMap: Record<string, Category> = {
-  "Wedding Planning": "Mariages",
-  "Événementiel Professionnel": "Corporate",
-  "Pâtisserie": "Cakes",
+  "Organisation de mariage": "Mariages",
+  "Événementiel professionnel": "Entreprise",
+  "Pâtisserie": "Pâtisserie",
   "Événementiel Privé": "Privé",
-  "Événementiel": "Corporate",
+  "Événementiel": "Entreprise",
 };
 
 const portfolioItems: PortfolioItemData[] = [
   {
     id: 1,
     title: "Mariage champêtre élégant",
-    category: "Wedding Planning",
+    category: "Organisation de mariage",
     location: "Picardie",
     description:
       "Un mariage romantique en pleine nature avec une décoration minimaliste et raffinée. Coordination complète des prestataires et organisation du jour J.",
@@ -46,21 +46,21 @@ const portfolioItems: PortfolioItemData[] = [
   {
     id: 2,
     title: "Séminaire créatif",
-    category: "Événementiel Professionnel",
+    category: "Événementiel professionnel",
     location: "Paris",
     description:
-      "Organisation d\u2019un séminaire de 3 jours pour une entreprise tech, avec des activités team building innovantes et une scénographie moderne.",
+      "Organisation d\u2019un séminaire de 3 jours pour une entreprise, avec des activités de cohésion d’équipe et une scénographie moderne.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=800&fit=crop",
-    highlights: ["80 participants", "3 jours", "Team building"],
+    highlights: ["80 participants", "3 jours", "Cohésion d’équipe"],
   },
   {
     id: 3,
-    title: "Wedding Cake artisanal",
+    title: "Gâteau de mariage artisanal",
     category: "Pâtisserie",
     location: "Amiens",
     description:
-      "Wedding cake sur mesure avec décoration florale comestible et saveurs personnalisées. Un gâteau personnalisé de A à Z.",
+      "Gâteau de mariage sur mesure avec décoration florale comestible et saveurs personnalisées. Une création personnalisée de A à Z.",
     image:
       "https://images.unsplash.com/photo-1549254800-381c9c6f4ee5?q=80&w=1170&auto=format&fit=crop",
     highlights: ["5 étages", "Décoration florale", "Création sur mesure"],
@@ -89,11 +89,11 @@ const portfolioItems: PortfolioItemData[] = [
   },
   {
     id: 6,
-    title: "Layer Cake végane",
+    title: "Gâteau à étages végane",
     category: "Pâtisserie",
     location: "Paris",
     description:
-      "Layer cake 100% végane pour un anniversaire, avec décoration artistique sur le thème de la nature.",
+      "Gâteau à étages 100% végane pour un anniversaire, avec décoration artistique sur le thème de la nature.",
     image:
       "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=1200&h=800&fit=crop",
     highlights: ["100% végane", "Décoration artistique", "Thème personnalisé"],
@@ -112,9 +112,9 @@ const portfolioItems: PortfolioItemData[] = [
 ];
 
 /**
- * Portfolio Page
+ * Page Portfolio
  *
- * Filter bar (client interactive) + gallery grid + lightbox modal.
+ * Barre de filtres (interactif) + grille + modale.
  */
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState<Category>("Tous");

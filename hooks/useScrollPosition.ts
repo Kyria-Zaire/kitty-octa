@@ -1,18 +1,17 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 
 export function useScrollPosition() {
-    const [scrollY, setScrollY] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
 
-    useEffect(() => {
-        const handler = () => setScrollY(window.scrollY)
-        window.addEventListener('scroll', handler, { passive: true })
+  useEffect(() => {
+    const handler = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', handler, { passive: true })
+    handler()
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
-        // Initial check on mount
-        handler()
-
-        return () => window.removeEventListener('scroll', handler)
-    }, [])
-
-    return scrollY
+  return scrollY
 }
+

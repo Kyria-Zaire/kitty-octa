@@ -21,8 +21,8 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: "wedding",
-    title: "Wedding Planning",
+    id: "mariage",
+    title: "Organisation de mariage",
     description:
       "Accompagnement complet des futurs mariés pour créer le mariage de leurs rêves.",
     details: [
@@ -44,7 +44,7 @@ const services: ServiceItem[] = [
       "Conception et gestion d\u2019événements privés et professionnels sur mesure.",
     details: [
       "Mariages, anniversaires, cérémonies",
-      "Séminaires d\u2019entreprise et team building",
+      "Séminaires d\u2019entreprise et cohésion d’équipe",
       "Manifestations culturelles et professionnelles",
       "Escape games immersifs et soirées thématiques",
       "Planification complète : timing, logistique, coordination",
@@ -56,11 +56,11 @@ const services: ServiceItem[] = [
   },
   {
     id: "cakes",
-    title: "Layer Cakes sur mesure",
+    title: "Gâteaux à étages sur mesure",
     description:
       "Création artisanale de pâtisseries décoratives pour sublimer vos événements.",
     details: [
-      "Layer cakes personnalisés selon vos goûts et votre thème",
+      "Gâteaux à étages personnalisés selon vos goûts et votre thème",
       "Options véganes et sans allergènes disponibles",
       "Pâtisseries thématiques et artistiques",
       "Association parfaite entre esthétique et goût",
@@ -125,10 +125,10 @@ const services: ServiceItem[] = [
 ];
 
 /**
- * Services Page — All 6 service categories
+ * Page Prestations — 6 catégories
  *
- * Interactive tab selector + detail card.
- * Uses "use client" for the tab state.
+ * Sélecteur d’onglets interactif + fiche détaillée.
+ * 'use client' requis pour l’état des onglets.
  */
 export default function ServicesPage() {
   const [activeIndex, setActiveIndex] = useState(0);

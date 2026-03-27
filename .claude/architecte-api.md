@@ -204,9 +204,9 @@ ADMIN_PASSWORD_HASH=  # bcrypt hash UNIQUEMENT, jamais le mot de passe
 SESSION_SECRET=       # crypto.randomBytes(64).toString('hex')
 
 # Stripe
-STRIPE_SECRET_KEY=         # sk_test_... ou sk_live_...
-NEXT_PUBLIC_STRIPE_KEY=    # pk_test_... ou pk_live_...
-STRIPE_WEBHOOK_SECRET=     # whsec_...
+STRIPE_SECRET_KEY=         # sk_test_REDACTED ou sk_live_REDACTED
+NEXT_PUBLIC_STRIPE_KEY=    # pk_test_REDACTED ou pk_live_REDACTED
+STRIPE_WEBHOOK_SECRET=     # whsec_REDACTED
 
 # Upstash Redis
 UPSTASH_REDIS_REST_URL=

@@ -2,17 +2,17 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type TargetAndTransition, type Transition } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
-import { cn } from "@/lib/utils";
 
-// Register GSAP Plugin
-if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
+interface MotionSpec {
+  initial: TargetAndTransition;
+  animate: TargetAndTransition;
+  transition?: Transition;
 }
 
 export interface HeroSectionProps {
@@ -34,11 +34,11 @@ export interface HeroSectionProps {
 }
 
 export function HeroSection({
-    imageSrc = "/images/hero-placeholder.jpg",
-    imageAlt = "Événement organisé par OctaviEvent à Amiens",
+    imageSrc = "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=85",
+    imageAlt = "Événement de mariage élégant organisé par OctaviEvent",
     eyebrow = "L'excellence au service de vos moments précieux",
     title = "Organisatrice d'événements\nde prestige à Amiens",
-    subtitle = "Mariages · Corporate · Événements Privés",
+    subtitle = "Mariages · Entreprise · Événements privés",
     ctaPrimary = { label: "Réserver une consultation gratuite", href: "/contact" },
     ctaSecondary = { label: "Découvrir nos créations", href: "/portfolio" },
     fomoText = "Agenda 2025 — Disponibilités limitées",
@@ -54,6 +54,8 @@ export function HeroSection({
     useEffect(() => {
         // Disable parallax if reduced motion is preferred
         if (shouldReduceMotion) return;
+
+        gsap.registerPlugin(ScrollTrigger);
 
         if (imageRef.current && heroRef.current) {
             const animation = gsap.to(imageRef.current, {
@@ -75,12 +77,12 @@ export function HeroSection({
     }, [shouldReduceMotion]);
 
     // Motion defaults handling reduced motion
-    const withMotion = (variants: any) => {
+    const withMotion = (variants: MotionSpec) => {
         if (shouldReduceMotion) {
             return {
-                initial: variants.animate,
+                initial: false as const,
                 animate: variants.animate,
-                transition: { duration: 0 },
+                transition: { duration: 0 } satisfies Transition,
             };
         }
         return variants;
@@ -97,22 +99,15 @@ export function HeroSection({
                 ref={imageRef}
                 className="absolute -top-[10%] -bottom-[10%] left-0 right-0 w-full h-[120%] z-0"
             >
-                {/* Fallback luxueux via gradient si l'image ne charge pas */}
-                <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal/95 to-taupe/80" />
-
-                {/* 
-          // TODO(Sprint2): Remplacer par de vraies photos de Kitty
-          // Image requise : 1920x1080, format WebP, < 200Ko 
-        */}
-                {/* <Image
+                <Image
                     src={imageSrc}
                     alt={imageAlt}
                     fill
                     priority
                     sizes="100vw"
                     quality={85}
-                    className="object-cover"
-                /> */}
+                    className="object-cover object-center"
+                />
             </div>
 
             {/* 2. OVERLAY LUXURY */}
@@ -125,10 +120,19 @@ export function HeroSection({
                 className="absolute inset-0 z-10"
             >
                 {/* Couche 1 : Assombrissement progressif pour lisibilité */}
-                <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/30 to-charcoal/70" />
+                <div className="absolute inset-0 bg-gradient-to-b from-charcoal/75 via-charcoal/40 to-charcoal/80" />
                 {/* Couche 2 : Teinte dorée très subtile */}
                 <div className="absolute inset-0 bg-gold/5 mix-blend-overlay" />
             </motion.div>
+
+            {/* Ruban 1 — décoratif */}
+            <div className="absolute top-[15%] left-0 right-0 z-20 flex items-center justify-center pointer-events-none">
+                <div className="flex items-center gap-4 w-full max-w-2xl px-6">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/60" />
+                    <div className="w-1.5 h-1.5 rotate-45 bg-gold/80 flex-shrink-0" />
+                    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/60" />
+                </div>
+            </div>
 
             {/* 3. CONTENU CENTRAL */}
             <div className="relative z-20 flex w-full max-w-4xl flex-col items-center px-6 text-center mt-12 md:mt-0">
@@ -182,6 +186,17 @@ export function HeroSection({
                     </motion.p>
                 )}
 
+                {/* Ruban 2 — avant les CTAs */}
+                <div className="flex items-center gap-3 w-full max-w-md mx-auto my-6">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/50" />
+                    <div className="w-1 h-1 rotate-45 bg-gold/70" />
+                    <div className="text-gold/60 text-xs tracking-[0.4em] font-dm-sans uppercase">
+                        Amiens · Hauts-de-France
+                    </div>
+                    <div className="w-1 h-1 rotate-45 bg-gold/70" />
+                    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/50" />
+                </div>
+
                 {/* CTAs */}
                 <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
                     {ctaPrimary && (
@@ -192,7 +207,7 @@ export function HeroSection({
                                 transition: { delay: 1.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
                             })}
                         >
-                            <Button variant="gold" size="lg" href={ctaPrimary.href}>
+                            <Button variant="secondary" size="lg" href={ctaPrimary.href}>
                                 {ctaPrimary.label}
                             </Button>
                         </motion.div>

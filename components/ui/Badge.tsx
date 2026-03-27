@@ -1,33 +1,32 @@
-﻿import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
-type BadgeVariant = "default" | "gold" | "success" | "muted";
-type BadgeSize = "sm" | "md";
+const variantStyles = {
+  muted: "bg-beige text-taupe border border-charcoal/10",
+  gold: "bg-gold text-charcoal border border-gold-dark/30",
+} as const;
+
+const sizeStyles = {
+  sm: "px-3 py-1 text-[11px] tracking-[0.18em]",
+  md: "px-4 py-2 text-xs tracking-[0.18em]",
+} as const;
 
 interface BadgeProps {
-  children: React.ReactNode;
-  variant?: BadgeVariant;
-  size?: BadgeSize;
+  variant?: keyof typeof variantStyles;
+  size?: keyof typeof sizeStyles;
   className?: string;
+  children: React.ReactNode;
 }
 
-const variantStyles: Record<BadgeVariant, string> = {
-  default: "bg-charcoal text-ivory border border-charcoal/80",
-  gold: "bg-gold/10 text-gold border border-gold/30",
-  success: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-  muted: "bg-beige text-taupe border border-taupe/20",
-};
-
-const sizeStyles: Record<BadgeSize, string> = {
-  sm: "px-2.5 py-1 text-[11px]",
-  md: "px-3 py-1.5 text-xs",
-};
-
-export function Badge({ children, variant = "default", size = "md", className }: BadgeProps) {
+export default function Badge({
+  variant = "muted",
+  size = "sm",
+  className,
+  children,
+}: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-[2px] font-medium uppercase tracking-[0.08em]",
-        "transition-all duration-300 ease-luxury",
+        "inline-flex items-center justify-center rounded-sm font-semibold uppercase",
         variantStyles[variant],
         sizeStyles[size],
         className
@@ -38,4 +37,3 @@ export function Badge({ children, variant = "default", size = "md", className }:
   );
 }
 
-export default Badge;

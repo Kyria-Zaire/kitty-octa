@@ -70,22 +70,22 @@ PROD      → JAMAIS de seed, données réelles uniquement
 ### Configuration par environnement
 ```bash
 # DEV (.env.local)
-STRIPE_SECRET_KEY=sk_test_51...
-NEXT_PUBLIC_STRIPE_KEY=pk_test_51...
-STRIPE_WEBHOOK_SECRET=whsec_... # depuis `stripe listen --forward-to localhost:3000/api/webhook/stripe`
+STRIPE_SECRET_KEY=sk_test_REDACTED
+NEXT_PUBLIC_STRIPE_KEY=pk_test_REDACTED
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED # depuis `stripe listen --forward-to localhost:3000/api/webhook/stripe`
 
 # RECETTE (.env.recette)
-STRIPE_SECRET_KEY=sk_test_51...  # même compte test
-STRIPE_WEBHOOK_SECRET=whsec_... # endpoint Stripe Dashboard → rec.kitty-octa.fr
+STRIPE_SECRET_KEY=sk_test_REDACTED  # même compte test
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED # endpoint Stripe Dashboard → rec.kitty-octa.fr
 
 # PREPROD (.env.preprod)
-STRIPE_SECRET_KEY=sk_test_51...
-STRIPE_WEBHOOK_SECRET=whsec_... # endpoint → pprod.kitty-octa.fr
+STRIPE_SECRET_KEY=sk_test_REDACTED
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED # endpoint → pprod.kitty-octa.fr
 # 3D Secure activé via Stripe Radar rules
 
 # PROD (Vercel env vars UNIQUEMENT)
-STRIPE_SECRET_KEY=sk_live_51...
-STRIPE_WEBHOOK_SECRET=whsec_... # endpoint → kitty-octa.fr
+STRIPE_SECRET_KEY=sk_live_REDACTED
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED # endpoint → kitty-octa.fr
 ```
 
 ### Cartes de test par scénario

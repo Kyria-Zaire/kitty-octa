@@ -6,7 +6,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 export const metadata: Metadata = {
   title: "\u00C0 propos \u2014 L\u2019\u00E2me d\u2019OctaviEvent",
   description:
-    "D\u00E9couvrez Octavie MAMBU DIEMFUKA, fondatrice d\u2019OctaviEvent by Kitty-Octa. Wedding planning haut de gamme, organisation d\u2019\u00E9v\u00E9nements sur mesure, une approche boutique et personnalis\u00E9e.",
+    "Découvrez Octavie MAMBU DIEMFUKA, fondatrice d’OctaviEvent by Kitty-Octa. Organisation de mariage haut de gamme, événements sur mesure, une approche boutique et personnalisée.",
 };
 
 /* ═══════════════════════════════════════════════════════════════

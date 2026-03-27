@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Nos Prestations",
   description:
-    "Découvrez nos services : Wedding Planning, Organisation d\u2019événements, Décoration, Layer Cakes sur mesure, Papeterie personnalisée et Formation.",
+    "Découvrez nos services : organisation de mariages, organisation d’événements, décoration, layer cakes sur mesure, papeterie personnalisée et formation.",
   openGraph: {
     title: "Nos Prestations | OctaviEvent by Kitty-Octa",
     description:

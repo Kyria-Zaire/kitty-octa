@@ -7,7 +7,7 @@ import { trackCTA } from "@/lib/analytics";
 
 const pricingPlans = [
   {
-    name: "Wedding Planning",
+    name: "Organisation de mariage",
     description: "Accompagnement complet pour votre mariage",
     price: "À partir de 1 500€",
     features: [
@@ -55,12 +55,12 @@ const pricingPlans = [
     popular: false,
   },
   {
-    name: "Layer Cakes et pâtisseries sur mesure",
+    name: "Gâteaux à étages et pâtisseries sur mesure",
     description: "Création artisanale de pâtisseries sur mesure",
     price: "À partir de 80€",
     features: [
       "Consultation personnalisée",
-      "Layer cake sur mesure",
+      "Gâteau à étages sur mesure",
       "Options véganes disponibles",
       "Décoration thématique",
       "Livraison et installation",

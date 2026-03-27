@@ -29,14 +29,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "OctaviEvent by Kitty-Octa | Wedding Planner & Événementiel de Luxe",
+    default: "OctaviEvent by Kitty-Octa | Événementiel & Mariages haut de gamme",
     template: "%s | OctaviEvent by Kitty-Octa",
   },
   description:
-    "OctaviEvent, branche événementielle de Kitty-Octa. Wedding planning haut de gamme, organisation d’événements sur mesure, décoration élégante et création de layer cakes artisanaux. Hauts-de-France & Île-de-France.",
+    "OctaviEvent, branche événementielle de Kitty-Octa. Organisation de mariages haut de gamme, événements sur mesure, décoration élégante et création de layer cakes artisanaux. Hauts-de-France & Île-de-France.",
   keywords: [
-    "wedding planner",
-    "wedding planning luxe",
+    "organisatrice de mariage",
+    "organisation de mariage haut de gamme",
     "événementiel haut de gamme",
     "organisation événements sur mesure",
     "layer cakes artisanaux",
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     "Kitty-Octa",
     "OctaviEvent",
     "papeterie personnalisée",
-    "wedding planner Hauts-de-France",
+    "organisatrice de mariage Hauts-de-France",
     "organisatrice mariage Picardie",
   ],
   authors: [{ name: "Octavie MAMBU DIEMFUKA" }],
   creator: "Octavie MAMBU DIEMFUKA",
   openGraph: {
-    title: "OctaviEvent by Kitty-Octa | Wedding Planner & Événementiel de Luxe",
+    title: "OctaviEvent by Kitty-Octa | Événementiel & Mariages haut de gamme",
     description:
       "Un univers façonné par la passion de célébrer les moments de vie avec élégance, émotion et authenticité.",
     type: "website",
@@ -63,15 +63,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "OctaviEvent — Événementiel sur mesure & Wedding Planning de luxe",
+        alt: "OctaviEvent — Événementiel sur mesure & organisation de mariages",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OctaviEvent by Kitty-Octa | Wedding Planner & Événementiel de Luxe",
+    title: "OctaviEvent by Kitty-Octa | Événementiel & Mariages haut de gamme",
     description:
-      "Organisation d’événements sur mesure, wedding planning et création de layer cakes.",
+      "Organisation d’événements sur mesure, mariages haut de gamme et création de layer cakes.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -98,7 +98,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#business`,
       name: "OctaviEvent by Kitty-Octa",
       description:
-        "Wedding planning haut de gamme et organisation d’événements sur mesure. Mariages, séminaires, layer cakes artisanaux.",
+        "Organisation de mariages haut de gamme et événements sur mesure. Mariages, séminaires, layer cakes artisanaux.",
       url: SITE_URL,
       logo: `${SITE_URL}/images/logo.webp`,
       image: OG_IMAGE,
@@ -119,12 +119,12 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": `${SITE_URL}/#service`,
-      name: "OctaviEvent — Wedding Planning & Événementiel",
+      name: "OctaviEvent — Mariages & Événementiel",
       serviceType: [
-        "Wedding Planning",
+        "Organisation de mariages",
         "Organisation d’événements",
-        "Décoration Événementielle",
-        "Layer Cakes sur mesure",
+        "Décoration événementielle",
+        "Gâteaux à étages sur mesure",
         "Papeterie personnalisée",
       ],
       provider: { "@id": `${SITE_URL}/#business` },

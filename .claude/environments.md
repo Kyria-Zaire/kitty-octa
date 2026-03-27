@@ -4,10 +4,10 @@
 
 | Env      | URL                    | Branch    | DB               | Stripe        | Sanity     |
 |----------|------------------------|-----------|------------------|---------------|------------|
-| DEV      | localhost:3000         | feature/* | kittyocta_dev    | sk_test_...   | staging    |
-| RECETTE  | rec.kitty-octa.fr      | recette   | kittyocta_rec    | sk_test_...   | staging    |
-| PREPROD  | pprod.kitty-octa.fr    | preprod   | kittyocta_pprod  | sk_test_...   | staging    |
-| PROD     | kitty-octa.fr         | main      | kittyocta_prod   | sk_live_...   | production |
+| DEV      | localhost:3000         | feature/* | kittyocta_dev    | sk_test_REDACTED   | staging    |
+| RECETTE  | rec.kitty-octa.fr      | recette   | kittyocta_rec    | sk_test_REDACTED   | staging    |
+| PREPROD  | pprod.kitty-octa.fr    | preprod   | kittyocta_pprod  | sk_test_REDACTED   | staging    |
+| PROD     | kitty-octa.fr         | main      | kittyocta_prod   | sk_live_REDACTED   | production |
 
 ---
 
@@ -23,9 +23,9 @@ ADMIN_PASSWORD_HASH=$2b$12$...     # générer avec: node -e "require('bcryptjs'
 SESSION_SECRET=                     # générer avec: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 # Stripe TEST
-STRIPE_SECRET_KEY=sk_test_51...
-NEXT_PUBLIC_STRIPE_KEY=pk_test_51...
-STRIPE_WEBHOOK_SECRET=whsec_...    # depuis: stripe listen --forward-to localhost:3000/api/webhook/stripe
+STRIPE_SECRET_KEY=sk_test_REDACTED
+NEXT_PUBLIC_STRIPE_KEY=pk_test_REDACTED
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED    # depuis: stripe listen --forward-to localhost:3000/api/webhook/stripe
 
 # Upstash Redis
 UPSTASH_REDIS_REST_URL=
@@ -35,7 +35,7 @@ UPSTASH_REDIS_REST_TOKEN=
 NEXT_PUBLIC_GA_ID=
 
 # Email
-RESEND_API_KEY=re_test_...
+RESEND_API_KEY=re_REDACTED
 KITTY_EMAIL=test@kitty-octa.fr
 
 # Sanity
@@ -71,7 +71,7 @@ SANITY_API_TOKEN=XXXXX
 ```bash
 # Terminal séparé
 stripe listen --forward-to localhost:3000/api/webhook/stripe
-# → copier le whsec_... affiché dans STRIPE_WEBHOOK_SECRET
+# → copier le secret webhook affiché dans STRIPE_WEBHOOK_SECRET
 ```
 
 ### RECETTE / PREPROD / PROD

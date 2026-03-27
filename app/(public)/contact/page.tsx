@@ -33,7 +33,7 @@ const eventTypeOptions = [
   { value: "wedding", label: "Mariage" },
   { value: "corporate", label: "Événement professionnel" },
   { value: "private", label: "Événement privé" },
-  { value: "cake", label: "Layer Cake / Pâtisserie" },
+  { value: "cake", label: "Gâteau à étages / Pâtisserie" },
   { value: "decoration", label: "Décoration" },
   { value: "training", label: "Formation" },
   { value: "other", label: "Autre" },
