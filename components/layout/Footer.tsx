@@ -12,29 +12,29 @@ const navigationLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal text-ivory/80 font-dm-sans">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-16">
-          {/* COLONNE 1 — Brand */}
+    <footer className="bg-charcoal">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 gap-14 md:grid-cols-3">
+          {/* COLONNE 1 — Marque */}
           <div>
             <Link href="/" className="inline-flex flex-col">
-              <span className="font-playfair text-2xl tracking-wide text-ivory">
+              <span className="font-playfair text-2xl text-ivory tracking-wide">
                 OctaviEvent
               </span>
-              <span className="font-dm-sans text-xs tracking-[0.2em] text-gold block uppercase">
+              <span className="text-gold text-xs tracking-[0.2em] font-dm-sans uppercase">
                 by Kitty-Octa
               </span>
             </Link>
 
-            <p className="mt-6 text-sm leading-relaxed text-ivory/70 max-w-sm">
+            <p className="font-playfair italic text-ivory/60 text-sm mt-3 max-w-xs">
               L&apos;excellence au service de vos moments précieux
             </p>
 
-            <div className="mt-8 flex items-center gap-5">
+            <div className="flex items-center gap-4 mt-6">
               <a
                 href="#"
                 aria-label="Instagram"
-                className="text-ivory/60 hover:text-gold transition-colors"
+                className="text-ivory/50 hover:text-gold transition-colors"
               >
                 <svg
                   width="20"
@@ -53,7 +53,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="LinkedIn"
-                className="text-ivory/60 hover:text-gold transition-colors"
+                className="text-ivory/50 hover:text-gold transition-colors"
               >
                 <svg
                   width="20"
@@ -68,7 +68,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Pinterest"
-                className="text-ivory/60 hover:text-gold transition-colors"
+                className="text-ivory/50 hover:text-gold transition-colors"
               >
                 <svg
                   width="20"
@@ -85,39 +85,36 @@ export default function Footer() {
 
           {/* COLONNE 2 — Navigation */}
           <div>
-            <h4 className="font-playfair text-sm font-bold tracking-[0.2em] text-gold uppercase mb-8">
+            <h4 className="font-dm-sans text-xs tracking-[0.2em] uppercase text-ivory/40 mb-4">
               Navigation
             </h4>
-            <div className="flex flex-col gap-y-4">
+            <ul className="flex flex-col gap-3">
               {navigationLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="w-fit text-sm text-ivory/70 hover:text-ivory transition-colors"
-                >
-                  {link.label}
-                </Link>
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-dm-sans text-sm text-ivory/70 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* COLONNE 3 — Contact */}
           <div>
-            <h4 className="font-playfair text-sm font-bold tracking-[0.2em] text-gold uppercase mb-8">
+            <h4 className="font-dm-sans text-xs tracking-[0.2em] uppercase text-ivory/40 mb-4">
               Contact
             </h4>
 
-            <div className="flex flex-col gap-5 text-sm">
-              <div className="flex items-start gap-3">
-                <span className="text-gold" aria-hidden="true">
-                  📍
-                </span>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2 text-ivory/70 text-sm">
+                <span aria-hidden="true">📍</span>
                 <span>Amiens, Hauts-de-France</span>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-gold" aria-hidden="true">
-                  ✉️
-                </span>
+              <div className="flex items-center gap-2 text-ivory/70 text-sm">
+                <span aria-hidden="true">✉️</span>
                 <a
                   href="mailto:contact@kitty-octa.fr"
                   className="hover:text-gold transition-colors"
@@ -125,31 +122,32 @@ export default function Footer() {
                   contact@kitty-octa.fr
                 </a>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-gold" aria-hidden="true">
-                  📞
-                </span>
-                <span>À compléter</span>
+              <div className="flex items-center gap-2 text-ivory/70 text-sm">
+                <span aria-hidden="true">📞</span>
+                <span>À définir</span>
               </div>
             </div>
 
-            <div className="mt-10">
-              <Button variant="secondary" size="md" href="/contact">
-                Démarrer mon projet
-              </Button>
-            </div>
+            <Button variant="gold" size="sm" className="mt-6" href="/contact">
+              Démarrer mon projet
+            </Button>
           </div>
         </div>
 
-        <div className="mt-16 border-t border-ivory/10 pt-8 flex flex-col items-center justify-between gap-4 text-xs text-ivory/40 md:flex-row">
-          <p>© 2025 OctaviEvent by Kitty-Octa. Tous droits réservés.</p>
+        <div className="border-t border-ivory/10 mt-16 pt-8 flex justify-between items-center flex-wrap gap-4">
+          <p className="text-ivory/40 text-xs font-dm-sans">
+            © 2025 OctaviEvent by Kitty-Octa. Tous droits réservés.
+          </p>
           <div className="flex gap-4">
-            <Link href="/mentions-legales" className="hover:text-ivory transition-colors">
+            <Link
+              href="/mentions-legales"
+              className="text-ivory/40 text-xs hover:text-ivory/70 transition-colors"
+            >
               Mentions légales
             </Link>
             <Link
               href="/politique-de-confidentialite"
-              className="hover:text-ivory transition-colors"
+              className="text-ivory/40 text-xs hover:text-ivory/70 transition-colors"
             >
               Politique de confidentialité
             </Link>

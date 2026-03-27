@@ -55,8 +55,20 @@ export default function Header() {
             className="group flex flex-col z-50"
             onClick={() => setIsMenuOpen(false)}
           >
-            <span className="font-playfair text-xl tracking-wide">OctaviEvent</span>
-            <span className="font-dm-sans text-xs tracking-[0.2em] text-gold block uppercase group-hover:text-gold-light transition-colors">
+            <span
+              className={cn(
+                "font-playfair text-xl tracking-wide transition-colors duration-300",
+                isScrolled ? "text-charcoal" : "text-ivory"
+              )}
+            >
+              OctaviEvent
+            </span>
+            <span
+              className={cn(
+                "font-dm-sans text-xs tracking-[0.2em] block transition-colors duration-300 uppercase",
+                "text-gold"
+              )}
+            >
               by Kitty-Octa
             </span>
           </Link>
@@ -68,7 +80,13 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group relative px-2 py-1 text-sm font-medium tracking-wide transition-colors hover:text-gold"
+                  className={cn(
+                    "group relative px-2 py-1",
+                    "font-dm-sans text-sm tracking-wide transition-colors duration-300",
+                    isScrolled
+                      ? "text-charcoal hover:text-gold"
+                      : "text-ivory/90 hover:text-gold"
+                  )}
                 >
                   {link.label}
                   {isActive && (
@@ -81,13 +99,25 @@ export default function Header() {
                 </Link>
               );
             })}
-            <Button variant="secondary" size="sm" href="/contact" className="ml-4">
+            <Button
+              variant={isScrolled ? "gold" : "secondary"}
+              size="sm"
+              href="/contact"
+              className={cn(
+                "ml-4",
+                !isScrolled &&
+                  "border border-ivory/60 text-ivory hover:bg-ivory hover:text-charcoal active:bg-ivory/90"
+              )}
+            >
               Contact
             </Button>
           </nav>
 
           <button
-            className="z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden outline-none"
+            className={cn(
+              "z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden outline-none",
+              isScrolled ? "text-charcoal" : "text-ivory"
+            )}
             onClick={() => setIsMenuOpen((v) => !v)}
             aria-label="Menu"
           >
