@@ -9,10 +9,10 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export function CTAFinal() {
   return (
-    <SectionWrapper variant="charcoal" spacing="lg" className="relative">
+    <SectionWrapper variant="charcoal" size="lg" className="relative">
       <div className="mx-auto max-w-4xl text-center">
         <Divider
-          variant="line"
+          variant="gold"
           className="mx-auto mb-10 max-w-xs bg-gold/20"
         />
 

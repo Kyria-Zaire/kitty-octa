@@ -77,7 +77,7 @@ const services = [
 
 export function ServicesTeaser() {
   return (
-    <SectionWrapper variant="ivory" spacing="lg">
+    <SectionWrapper variant="ivory" size="lg">
       <div className="mx-auto max-w-4xl text-center">
         <p className="font-serif text-lg italic text-gold">Nos Prestations</p>
         <h2 className="mt-4 font-serif text-4xl leading-tight text-charcoal md:text-5xl">
@@ -85,7 +85,7 @@ export function ServicesTeaser() {
           <br />
           pour l&apos;excellence
         </h2>
-        <Divider variant="ornament" className="mx-auto mt-8 w-48" />
+        <Divider variant="ornamental" className="mx-auto mt-8 w-48" />
       </div>
 
       <motion.div

@@ -31,7 +31,7 @@ const steps = [
 
 export function ProcessusTeaser() {
   return (
-    <SectionWrapper variant="charcoal" spacing="lg">
+    <SectionWrapper variant="charcoal" size="lg">
       <div className="text-center">
         <p className="font-serif text-lg italic text-gold">Notre Approche</p>
         <h2 className="mt-4 font-serif text-4xl leading-tight text-ivory md:text-5xl">
@@ -40,7 +40,7 @@ export function ProcessusTeaser() {
           pour votre sérénité
         </h2>
         <Divider
-          variant="ornament"
+          variant="ornamental"
           className="mx-auto mt-8 w-56 [&_span:first-child]:bg-gold/30 [&_span:last-child]:bg-gold/30"
         />
       </div>

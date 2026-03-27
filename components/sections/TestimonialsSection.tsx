@@ -43,7 +43,7 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <SectionWrapper variant="beige" spacing="lg">
+    <SectionWrapper variant="beige" size="lg">
       <div className="mx-auto max-w-4xl text-center">
         <p className="font-serif text-lg italic text-gold">Ils nous font confiance</p>
         <h2 className="mt-4 font-serif text-4xl leading-tight text-charcoal md:text-5xl">

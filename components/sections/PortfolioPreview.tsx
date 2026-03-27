@@ -80,7 +80,7 @@ function PortfolioItem({
 
 export function PortfolioPreview() {
   return (
-    <SectionWrapper variant="ivory" spacing="lg">
+    <SectionWrapper variant="ivory" size="lg">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <p className="font-serif text-lg italic text-gold">Nos Réalisations</p>

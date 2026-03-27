@@ -89,7 +89,7 @@ const items = [
 
 export function PourquoiNousChoisir() {
   return (
-    <SectionWrapper variant="beige" spacing="lg">
+    <SectionWrapper variant="beige" size="lg">
       <div className="mx-auto max-w-5xl text-center">
         <p className="font-serif text-lg italic text-gold">Notre Différence</p>
         <h2 className="mt-4 font-serif text-4xl leading-tight text-charcoal md:text-5xl">
@@ -97,7 +97,7 @@ export function PourquoiNousChoisir() {
           <br />
           OctaviEvent ?
         </h2>
-        <Divider variant="ornament" className="mx-auto mt-8 w-56" />
+        <Divider variant="ornamental" className="mx-auto mt-8 w-56" />
       </div>
 
       <motion.div
